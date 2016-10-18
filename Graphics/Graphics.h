@@ -9,23 +9,27 @@
 #include "SpriteShader.h"
 #include "TextureTGA.h"
 #include "Line.h"
-#include "TextFont.h"
+#include "TextBlock.h"
+#include <vector>
 
 class Graphics
 {
 public:
-	SpriteShader *spriteShader;
 	GRAPHICS_API Graphics();
 	GRAPHICS_API ~Graphics();
 	GRAPHICS_API GLuint LoadShaders(const char *vFilePath, const char *fFilePath);
+	GRAPHICS_API void DrawText(TextBlock *textBlock, glm::mat4 *projection, SpriteShader *spriteShader, bool isRected);
 	GRAPHICS_API void DrawLine(float x1, float y1, float x2, float y2, glm::vec4 *color, glm::mat4 *projection);
+	SpriteShader *spriteShader;
 	TextFont *arialFont;
 	TextFont *chillerFont;
-	TextFont *arialBFont;
+	TextFont *calibriFont;
+	TextFont *sagoePrintFont;
 	int screenWidth;
 	int screenHeight;
+	std::vector<TextBlock*> textBlocks;
 private:
-	GLuint VertexArrayID;
+	GLuint vertexArrayId;
 	Line *line;
 };
 

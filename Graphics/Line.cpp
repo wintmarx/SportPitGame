@@ -2,6 +2,11 @@
 #include <iostream>
 
 
+Line::Line()
+{
+	glGenBuffers(1, &vertexBuffer);
+}
+
 Line::Line(float x1, float y1, float x2, float y2, glm::vec4 *color)
 {
 	glGenBuffers(1, &vertexBuffer);

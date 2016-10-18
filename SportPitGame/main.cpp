@@ -4,7 +4,7 @@
 
 #define WIDTH 840
 #define HEIGHT 480
-#define APP_NAME "Galaxy Savior"
+#define APP_NAME "SportPit Game"
 
 void OnKeyboardEvent(GLFWwindow* window);
 bool InitializeWindow(int width, int height);
@@ -18,10 +18,11 @@ void main()
 		return;
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
 
-	game = new Game(WIDTH, HEIGHT);
 	graphics = new Graphics();
 	graphics->screenWidth = WIDTH;
 	graphics->screenHeight = HEIGHT;
+
+	game = new Game(graphics);
 
 	float lastTime = 0;
 	float delta = 0;

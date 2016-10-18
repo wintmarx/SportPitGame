@@ -52,7 +52,7 @@ void Player::Draw(glm::mat4 *projection, glm::mat4 *view, Graphics *graphics)
 	infoString += "\ncarbohydrates: " + std::to_string(this->carbohydrates);
 	infoString += "\nproteins: " + std::to_string(this->proteins);
 	//graphics->arialFont->DrawText(&infoString[0], 30, &glm::vec4(0.81, 0, 0, 1), 0, graphics->screenHeight, projection, graphics->spriteShader);
-	graphics->arialBFont->DrawText(&infoString[0], 30, &glm::vec4(1, 1, 0, 1), 0, graphics->screenHeight, projection, graphics->spriteShader);
+	//graphics->arialBFont->DrawText(&infoString[0], 30, &glm::vec4(1, 1, 0, 1), 0, graphics->screenHeight, projection, graphics->spriteShader);
 	Unit::Draw(projection, view, graphics);
 }
 

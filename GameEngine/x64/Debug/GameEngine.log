@@ -1,0 +1,23 @@
+﻿  Unit.cpp
+  Player.cpp
+d:\documents\visual studio 2015\projects\sportpitgame\gameengine\player.cpp(55): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  Game.cpp
+d:\documents\visual studio 2015\projects\sportpitgame\gameengine\game.cpp(94): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+d:\documents\visual studio 2015\projects\sportpitgame\gameengine\game.cpp(98): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  Food.cpp
+  Cola.cpp
+  Burger.cpp
+  Создание кода...
+     Создается библиотека D:\Documents\Visual Studio 2015\Projects\SportPitGame\x64\Debug\GameEngine.lib и объект D:\Documents\Visual Studio 2015\Projects\SportPitGame\x64\Debug\GameEngine.exp
+Game.obj : error LNK2019: ссылка на неразрешенный внешний символ __imp_glClear в функции "public: void __cdecl Game::Render(class Graphics *)" (?Render@Game@@QEAAXPEAVGraphics@@@Z)
+Game.obj : error LNK2019: ссылка на неразрешенный внешний символ __imp_glClearColor в функции "public: __cdecl Game::Game(int,int)" (??0Game@@QEAA@HH@Z)
+Game.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: void __cdecl TextFont::DrawText(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,int,struct glm::tvec4<float,0> *,float,float,struct glm::tmat4x4<float,0> *,class SpriteShader *)" (?DrawText@TextFont@@QEAAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HPEAU?$tvec4@M$0A@@glm@@MMPEAU?$tmat4x4@M$0A@@5@PEAVSpriteShader@@@Z) в функции "public: void __cdecl Game::Render(class Graphics *)" (?Render@Game@@QEAAXPEAVGraphics@@@Z)
+Player.obj : error LNK2001: неразрешенный внешний символ ""public: void __cdecl TextFont::DrawText(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,int,struct glm::tvec4<float,0> *,float,float,struct glm::tmat4x4<float,0> *,class SpriteShader *)" (?DrawText@TextFont@@QEAAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HPEAU?$tvec4@M$0A@@glm@@MMPEAU?$tmat4x4@M$0A@@5@PEAVSpriteShader@@@Z)"
+Game.obj : error LNK2019: ссылка на неразрешенный внешний символ "__declspec(dllimport) public: void __cdecl Graphics::DrawLine(float,float,float,float,struct glm::tvec4<float,0> *,struct glm::tmat4x4<float,0> *)" (__imp_?DrawLine@Graphics@@QEAAXMMMMPEAU?$tvec4@M$0A@@glm@@PEAU?$tmat4x4@M$0A@@3@@Z) в функции "public: void __cdecl Game::Render(class Graphics *)" (?Render@Game@@QEAAXPEAVGraphics@@@Z)
+Player.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: void __cdecl Sprite::SetColor(struct glm::tvec4<float,0> *)" (?SetColor@Sprite@@QEAAXPEAU?$tvec4@M$0A@@glm@@@Z) в функции "public: __cdecl Player::Player(int,int,struct glm::tvec3<float,0> *)" (??0Player@@QEAA@HHPEAU?$tvec3@M$0A@@glm@@@Z)
+Unit.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __cdecl Sprite::Sprite(int,int,struct glm::tvec4<float,0> *)" (??0Sprite@@QEAA@HHPEAU?$tvec4@M$0A@@glm@@@Z) в функции "public: __cdecl Unit::Unit(int,int,struct glm::tvec4<float,0> *,struct glm::tvec3<float,0> *)" (??0Unit@@QEAA@HHPEAU?$tvec4@M$0A@@glm@@PEAU?$tvec3@M$0A@@2@@Z)
+Unit.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __cdecl Sprite::Sprite(char const *)" (??0Sprite@@QEAA@PEBD@Z) в функции "public: __cdecl Unit::Unit(char const *,struct glm::tvec3<float,0> *)" (??0Unit@@QEAA@PEBDPEAU?$tvec3@M$0A@@glm@@@Z)
+Unit.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __cdecl Sprite::Sprite(int,int,char const *)" (??0Sprite@@QEAA@HHPEBD@Z) в функции "public: __cdecl Unit::Unit(int,int,char const *,struct glm::tvec3<float,0> *)" (??0Unit@@QEAA@HHPEBDPEAU?$tvec3@M$0A@@glm@@@Z)
+Unit.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __cdecl Sprite::~Sprite(void)" (??1Sprite@@QEAA@XZ) в функции "public: void * __cdecl Sprite::`scalar deleting destructor'(unsigned int)" (??_GSprite@@QEAAPEAXI@Z)
+Unit.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: void __cdecl Sprite::Draw(struct glm::tmat4x4<float,0> *,struct glm::tmat4x4<float,0> *,struct glm::tmat4x4<float,0> *,class SpriteShader *)" (?Draw@Sprite@@QEAAXPEAU?$tmat4x4@M$0A@@glm@@00PEAVSpriteShader@@@Z) в функции "public: virtual void __cdecl Unit::Draw(struct glm::tmat4x4<float,0> *,struct glm::tmat4x4<float,0> *,class Graphics *)" (?Draw@Unit@@UEAAXPEAU?$tmat4x4@M$0A@@glm@@0PEAVGraphics@@@Z)
+D:\Documents\Visual Studio 2015\Projects\SportPitGame\x64\Debug\GameEngine.dll : fatal error LNK1120: неразрешенных внешних элементов: 10

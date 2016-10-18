@@ -1,7 +1,14 @@
 #pragma once
+#ifdef GRAPHICS_EXPORTS
+#define GRAPHICS_API __declspec(dllexport) 
+#else
+#define GRAPHICS_API __declspec(dllimport)
+#endif
 #include "GLHeaders.h"
 #include "Sprite.h"
 #include <string>
+#include "Line.h"
+
 
 struct Glyph
 {
@@ -18,9 +25,10 @@ struct Glyph
 class TextFont
 {
 public:
-	__declspec(dllexport) void DrawText(std::string text, int size, glm::vec4 *color, float x, float y, glm::mat4 *projection, SpriteShader *spriteShader);
-	__declspec(dllexport) TextFont(const char* filePath);
-	__declspec(dllexport) ~TextFont();
+	GRAPHICS_API void DrawText(std::string text, int size, glm::vec4 *color, float x, float y, glm::mat4 *projection, SpriteShader *spriteShader, bool isRected);
+	GRAPHICS_API TextFont(const char* filePath);
+	GRAPHICS_API ~TextFont();
+	uint8_t *fontName;
 private:
 	void LoadFont(const char *filePath);
 	bool LoadFile(const char *fileName, bool binary, uint8_t **buffer, uint32_t *size);
@@ -31,5 +39,6 @@ private:
 	uint16_t lineHeight;
 	uint16_t base;
 	glm::mat4 model;
+	Line *line;
 };
 

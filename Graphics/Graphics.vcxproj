@@ -18,6 +18,27 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GLHeaders.h" />
+    <ClInclude Include="Graphics.h" />
+    <ClInclude Include="Line.h" />
+    <ClInclude Include="PNGLoader.h" />
+    <ClInclude Include="Sprite.h" />
+    <ClInclude Include="SpriteShader.h" />
+    <ClInclude Include="TextBlock.h" />
+    <ClInclude Include="TextFont.h" />
+    <ClInclude Include="TextureTGA.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Graphics.cpp" />
+    <ClCompile Include="Line.cpp" />
+    <ClCompile Include="PNGLoader.cpp" />
+    <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="SpriteShader.cpp" />
+    <ClCompile Include="TextBlock.cpp" />
+    <ClCompile Include="TextFont.cpp" />
+    <ClCompile Include="TextureTGA.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{ED11199B-53BC-4022-BDCB-14A5510DAA2E}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -155,25 +176,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="GLHeaders.h" />
-    <ClInclude Include="Graphics.h" />
-    <ClInclude Include="Line.h" />
-    <ClInclude Include="PNGLoader.h" />
-    <ClInclude Include="Sprite.h" />
-    <ClInclude Include="SpriteShader.h" />
-    <ClInclude Include="TextFont.h" />
-    <ClInclude Include="TextureTGA.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Graphics.cpp" />
-    <ClCompile Include="Line.cpp" />
-    <ClCompile Include="PNGLoader.cpp" />
-    <ClCompile Include="Sprite.cpp" />
-    <ClCompile Include="SpriteShader.cpp" />
-    <ClCompile Include="TextFont.cpp" />
-    <ClCompile Include="TextureTGA.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

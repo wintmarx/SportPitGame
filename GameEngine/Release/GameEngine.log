@@ -1,0 +1,11 @@
+﻿  Player.cpp
+Player.cpp(55): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+     Создается библиотека D:\Documents\Visual Studio 2015\Projects\SportPitGame\Libs\Release\GameEngine.lib и объект D:\Documents\Visual Studio 2015\Projects\SportPitGame\Libs\Release\GameEngine.exp
+  Создание кода
+  0 of 250 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Создание кода завершено
+  GameEngine.vcxproj -> D:\Documents\Visual Studio 2015\Projects\SportPitGame\Libs\Release\GameEngine.dll
+  D:\Documents\Visual Studio 2015\Projects\SportPitGame\Libs\Release\GameEngine.dll
+  Скопировано файлов: 1.

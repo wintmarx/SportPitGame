@@ -1,0 +1,23 @@
+﻿  main.cpp
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ __imp_glewInit в функции "bool __cdecl InitializeWindow(int,int)" (?InitializeWindow@@YA_NHH@Z)
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ glfwInit в функции "bool __cdecl InitializeWindow(int,int)" (?InitializeWindow@@YA_NHH@Z)
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ glfwTerminate в функции "bool __cdecl InitializeWindow(int,int)" (?InitializeWindow@@YA_NHH@Z)
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ glfwWindowHint в функции "bool __cdecl InitializeWindow(int,int)" (?InitializeWindow@@YA_NHH@Z)
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ glfwCreateWindow в функции "bool __cdecl InitializeWindow(int,int)" (?InitializeWindow@@YA_NHH@Z)
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ glfwWindowShouldClose в функции main
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ glfwPollEvents в функции main
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ glfwSetInputMode в функции main
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ glfwGetKey в функции "void __cdecl OnKeyboardEvent(struct GLFWwindow *)" (?OnKeyboardEvent@@YAXPEAUGLFWwindow@@@Z)
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ glfwGetTime в функции main
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ glfwMakeContextCurrent в функции "bool __cdecl InitializeWindow(int,int)" (?InitializeWindow@@YA_NHH@Z)
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ glfwSwapBuffers в функции main
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ "__declspec(dllimport) public: __cdecl Graphics::Graphics(void)" (__imp_??0Graphics@@QEAA@XZ) в функции main
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ "__declspec(dllimport) public: __cdecl Graphics::~Graphics(void)" (__imp_??1Graphics@@QEAA@XZ) в функции "public: void * __cdecl Graphics::`scalar deleting destructor'(unsigned int)" (??_GGraphics@@QEAAPEAXI@Z)
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ "__declspec(dllimport) public: __cdecl Game::Game(int,int)" (__imp_??0Game@@QEAA@HH@Z) в функции main
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ "__declspec(dllimport) public: __cdecl Game::~Game(void)" (__imp_??1Game@@QEAA@XZ) в функции "public: void * __cdecl Game::`scalar deleting destructor'(unsigned int)" (??_GGame@@QEAAPEAXI@Z)
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ "__declspec(dllimport) public: void __cdecl Game::Update(float)" (__imp_?Update@Game@@QEAAXM@Z) в функции main
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ "__declspec(dllimport) public: void __cdecl Game::Render(class Graphics *)" (__imp_?Render@Game@@QEAAXPEAVGraphics@@@Z) в функции main
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ "__declspec(dllimport) public: void __cdecl Game::OnKeyPress(int,bool)" (__imp_?OnKeyPress@Game@@QEAAXH_N@Z) в функции "void __cdecl OnKeyboardEvent(struct GLFWwindow *)" (?OnKeyboardEvent@@YAXPEAUGLFWwindow@@@Z)
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ "__declspec(dllimport) public: void __cdecl Game::OnKeyRelease(int)" (__imp_?OnKeyRelease@Game@@QEAAXH@Z) в функции "void __cdecl OnKeyboardEvent(struct GLFWwindow *)" (?OnKeyboardEvent@@YAXPEAUGLFWwindow@@@Z)
+main.obj : error LNK2001: неразрешенный внешний символ "__imp_glewExperimental"
+D:\Documents\Visual Studio 2015\Projects\SportPitGame\x64\Debug\SportPitGame.exe : fatal error LNK1120: неразрешенных внешних элементов: 21

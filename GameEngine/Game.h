@@ -14,15 +14,21 @@
 class Game
 {
 public:
-	GAME_API Game(int width, int height);
+	GAME_API Game(Graphics *graphics);
 	GAME_API ~Game();
 	GAME_API void Update(float delta);
 	GAME_API void Render(Graphics *graphics);
 	GAME_API void OnKeyPress(int buttonID, bool isPressed);
 	GAME_API void OnKeyRelease(int buttonID);
 private:
-	int screenHeight;
-	int screenWidth;
+	Graphics *graphics;
+	template <typename T>
+	void WriteBinaryValue(std::ofstream *output, T value);
+	template <typename T>
+	void ReadBinaryValue(uint8_t **buffer, T *value, uint32_t *offset);
+	void SaveLayout(Graphics *graphics);
+	void LoadLayout(const char *filePath);
+	bool LoadFile(const char *fileName, bool binary, uint8_t **buffer, uint32_t *size);
 	
 };
 

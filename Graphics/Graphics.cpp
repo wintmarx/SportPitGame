@@ -4,7 +4,6 @@
 #include <string>
 #include <vector>
 #include <fstream>
-#include "TextFont.h"
 
 Graphics::Graphics()
 {
@@ -15,25 +14,31 @@ Graphics::Graphics()
 	glEnable(GL_BLEND);
 	glDisable(GL_ALPHA_TEST);
 
-	glGenVertexArrays(1, &VertexArrayID);
-	glBindVertexArray(VertexArrayID);
+	glGenVertexArrays(1, &vertexArrayId);
+	glBindVertexArray(vertexArrayId);
 	spriteShader = new SpriteShader(LoadShaders("Data\\Shaders\\vertex.shader", "Data\\Shaders\\fragment.shader"));
 	line = new Line(0, 0, 0, 0, &glm::vec4(0, 0, 0, 0));
-	arialFont = new TextFont("Data//Fonts//arial1.fnt");
-	arialBFont = new TextFont("Data//Fonts//arialB.fnt");
+	arialFont = new TextFont("Data//Fonts//arial.fnt");
 	chillerFont = new TextFont("Data//Fonts//Chiller.fnt");
+	calibriFont = new TextFont("Data//Fonts//calibri.fnt");
+	sagoePrintFont = new TextFont("Data//Fonts//sagoePrint.fnt");
 }
 
 Graphics::~Graphics()
 {
 	delete spriteShader;
-	glDeleteVertexArrays(1, &VertexArrayID);
+	glDeleteVertexArrays(1, &vertexArrayId);
 }
 
 void Graphics::DrawLine(float x1, float y1, float x2, float y2, glm::vec4 *color, glm::mat4 *projection)
 {
 	line->SetLine(x1, y1, x2, y2, color);
 	line->Draw(projection, spriteShader);
+}
+
+void Graphics::DrawText(TextBlock *textBlock, glm::mat4 *projection, SpriteShader *spriteShader, bool isRected)
+{
+	textBlock->font->DrawText(textBlock->text, textBlock->fontSize, &textBlock->color, textBlock->x, textBlock->y, projection, spriteShader, isRected);
 }
 
 using namespace std;

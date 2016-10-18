@@ -128,6 +128,10 @@ void Sprite::InitializeSprite()
 	glGenBuffers(1, &indexBuffer);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indexCount * sizeof(unsigned int), indices, GL_STATIC_DRAW);
+
+	delete vertices;
+	delete indices;
+	delete uvs;
 }
 
 void Sprite::LoadTexture(const char* filePath)
@@ -200,6 +204,9 @@ void Sprite::SetShape(float x, float y, int width, int height)
 
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * vertexCount * 2, vertices, GL_STATIC_DRAW);
+
+	delete vertices;
+	delete uvs;
 }
 
 void Sprite::SetColor(glm::vec4 *color)
