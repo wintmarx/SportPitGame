@@ -12,7 +12,8 @@ Player::Player(int width, int height, glm::vec3 *position)
 	this->carbohydrates = 320;
 	this->proteins = 160;
 	this->fats = 50;
-	sprite->SetColor(&glm::vec4(0, 0, 0, 1));
+	velocity = 500;
+	sprite->SetColor(&glm::vec4(1, 0, 0, 1));
 }
 
 Player::~Player()
@@ -22,17 +23,12 @@ Player::~Player()
 
 void Player::Update(float deltaTime)
 {
-	velocityTimer += deltaTime;
-	if (velocityTimer > velocityLimiter) 
-	{
-		velocityTimer = 0;
-		position.x += direction.x * sprite->width;
-		position.y += direction.y * sprite->height;
-		this->calories -= 116;
-		this->carbohydrates -= 12;
-		this->proteins -= 7;
-		this->fats -= 2;
-	}
+	position.x += direction.x * velocity * deltaTime;
+	position.y += direction.y * velocity * deltaTime;
+	this->calories -= 116;
+	this->carbohydrates -= 12;
+	this->proteins -= 7;
+	this->fats -= 2;
 	*model = glm::translate(position);
 }
 

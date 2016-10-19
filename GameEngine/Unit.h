@@ -17,7 +17,7 @@ public:
 	glm::vec3 position;
 	glm::vec3 direction;
 	float velocityTimer;
-	float velocityLimiter;
+	float velocity;
 protected:
 	void InitializeUnit(glm::vec3 *position);
 	Sprite *sprite;

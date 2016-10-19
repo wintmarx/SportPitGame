@@ -46,17 +46,19 @@ Game::Game(Graphics *graphics)
 
 	srand((uint32_t)time(0));
 
-	LoadLayout("text.layout");
+	//LoadLayout("text.layout");
 
+	int step = 0;
 	for (int i = 0; i < cellsCount; i++)
 	{
 		for (int j = 0; j < cellsCount; j++)
 		{
-			field[i][j] = (int)rand()%7;
+			field[i][j] = (int)(rand()%10);
+			step = int(rand() % (10 * fieldSize) + fieldSize / 2);
 			if (field[i][j] == 1)
-				food.push_back(new Burger(fieldSize, fieldSize, &glm::vec3(j * fieldSize + fieldSize/2, i * fieldSize + fieldSize/2, 0)));
+				food.push_back(new Burger(fieldSize, fieldSize, &glm::vec3(j * step, i * step, 0)));
 			if (field[i][j] == 2)
-				food.push_back(new Cola(fieldSize, fieldSize, &glm::vec3(j * fieldSize + fieldSize / 2, i * fieldSize + fieldSize / 2, 0)));
+				food.push_back(new Cola(fieldSize, fieldSize, &glm::vec3(j * step, i * step, 0)));
 		}
 	}
 }
@@ -68,13 +70,13 @@ Game::~Game()
 
 void Game::Update(float delta)
 {
-	isStop = player->IsOutField(cellsCount, cellsCount);
-	if(!isStop)
+	//isStop = player->IsOutField(cellsCount, cellsCount);
+	//if(!isStop)
 		player->Update(delta);
 
 	for (uint32_t i = 0; i < food.size(); i++)
 	{
-		if (player->position == food[i]->position)
+		if (length(player->position - food[i]->position) < fieldSize*3.f/4)
 		{
 			food[i]->Eat(player);
 			food.erase(food.begin() + i);
@@ -90,14 +92,14 @@ void Game::Render(Graphics *graphics)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
-	for (int i = 0; i < cellsCount + 1; i++)
+	/*for (int i = 0; i < cellsCount + 1; i++)
 	{
 		graphics->DrawLine(0, i * fieldSize, cellsCount * fieldSize, i * fieldSize, &glm::vec4(0, 0, 1, 1), &(projection*view));
 	}
 	for (int j = 0; j < cellsCount + 1; j++)
 	{
 		graphics->DrawLine(j * fieldSize, 0, j * fieldSize, cellsCount * fieldSize, &glm::vec4(0, 0, 1, 1), &(projection*view));
-	}
+	}*/
 
 	for (uint32_t i = 0; i < food.size(); i++)
 	{
@@ -280,19 +282,10 @@ void Game::OnKeyPress(int buttonID, bool isPressed)
 		player->direction.y = 0;
 		break;
 	case GLFW_KEY_EQUAL:
-		if (!isPressed)
-		{
-			player->velocityLimiter += 0.002f;
-			std::cout << std::endl << player->velocityLimiter;
-		}
+			player->velocity += 10.f;
 		break;
 	case GLFW_KEY_MINUS:
-		if (!isPressed)
-		{
-			if (player->velocityLimiter > 1.f / 60)
-				player->velocityLimiter -= 0.002f;
-			std::cout << std::endl << player->velocityLimiter;
-		}
+			player->velocity -= 10.f;
 		break;
 	}
 }

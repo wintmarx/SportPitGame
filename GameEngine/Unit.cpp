@@ -43,7 +43,7 @@ void Unit::InitializeUnit(glm::vec3 *position)
 {
 	this->position = *position;
 	velocityTimer = 1;
-	velocityLimiter = 0.5f;
+	velocity = 0.5f;
 	direction = glm::vec3(0);
 	model = new glm::mat4(1);
 	*model = glm::translate(*model, *position);
