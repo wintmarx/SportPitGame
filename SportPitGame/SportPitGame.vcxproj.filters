@@ -13,10 +13,43 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Заголовочные файлы\Food">
+      <UniqueIdentifier>{090654dc-b559-43de-a05b-2a8664d996e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Food">
+      <UniqueIdentifier>{a9eefa57-7875-42f8-ae23-3b38781862d5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GameEngine\Unit.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GameEngine\Player.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GameEngine\Game.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GameEngine\Burger.cpp">
+      <Filter>Файлы исходного кода\Food</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GameEngine\Cola.cpp">
+      <Filter>Файлы исходного кода\Food</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GameEngine\Food.cpp">
+      <Filter>Файлы исходного кода\Food</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GameEngine\Banana.cpp">
+      <Filter>Файлы исходного кода\Food</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GameEngine\Donut.cpp">
+      <Filter>Файлы исходного кода\Food</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GameEngine\Croissant.cpp">
+      <Filter>Файлы исходного кода\Food</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -26,5 +59,34 @@
     <None Include="..\Bin\Debug\Data\Shaders\vertex.shader">
       <Filter>Файлы ресурсов</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\GameEngine\Burger.h">
+      <Filter>Заголовочные файлы\Food</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GameEngine\Cola.h">
+      <Filter>Заголовочные файлы\Food</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GameEngine\Food.h">
+      <Filter>Заголовочные файлы\Food</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GameEngine\Banana.h">
+      <Filter>Заголовочные файлы\Food</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GameEngine\Donut.h">
+      <Filter>Заголовочные файлы\Food</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GameEngine\Croissant.h">
+      <Filter>Заголовочные файлы\Food</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GameEngine\Game.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GameEngine\Player.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GameEngine\Unit.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

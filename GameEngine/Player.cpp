@@ -5,7 +5,7 @@
 
 
 Player::Player(int width, int height, glm::vec3 *position) 
-	: Unit(width, height, "player.png", position)
+	: Unit(width, height, "..//..//Data//Textures//player.png", position)
 {
 	direction.x = 1;
 	this->calories = 2800;
@@ -13,7 +13,7 @@ Player::Player(int width, int height, glm::vec3 *position)
 	this->proteins = 160;
 	this->fats = 50;
 	velocity = 500;
-	sprite->SetColor(&glm::vec4(1, 0, 0, 1));
+	sprite->SetColor(&glm::vec4(0, 0, 0, 1));
 }
 
 Player::~Player()

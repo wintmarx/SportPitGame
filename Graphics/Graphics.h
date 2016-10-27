@@ -17,7 +17,6 @@ class Graphics
 public:
 	GRAPHICS_API Graphics();
 	GRAPHICS_API ~Graphics();
-	GRAPHICS_API GLuint LoadShaders(const char *vFilePath, const char *fFilePath);
 	GRAPHICS_API void DrawText(TextBlock *textBlock, glm::mat4 *projection, SpriteShader *spriteShader, bool isRected);
 	GRAPHICS_API void DrawLine(float x1, float y1, float x2, float y2, glm::vec4 *color, glm::mat4 *projection);
 	SpriteShader *spriteShader;

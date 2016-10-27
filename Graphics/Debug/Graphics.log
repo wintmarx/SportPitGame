@@ -1,31 +1,7 @@
 ﻿  TextFont.cpp
 d:\documents\visual studio 2015\projects\sportpitgame\graphics\textfont.cpp(24): warning C4018: <: несоответствие типов со знаком и без знака
-d:\documents\visual studio 2015\projects\sportpitgame\graphics\textfont.cpp(137): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+d:\documents\visual studio 2015\projects\sportpitgame\graphics\textfont.cpp(139): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note:  см. объявление "fopen"
-  Sprite.cpp
-d:\documents\visual studio 2015\projects\sportpitgame\graphics\sprite.cpp(87): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-d:\documents\visual studio 2015\projects\sportpitgame\graphics\sprite.cpp(88): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-d:\documents\visual studio 2015\projects\sportpitgame\graphics\sprite.cpp(90): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-d:\documents\visual studio 2015\projects\sportpitgame\graphics\sprite.cpp(91): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-d:\documents\visual studio 2015\projects\sportpitgame\graphics\sprite.cpp(93): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-d:\documents\visual studio 2015\projects\sportpitgame\graphics\sprite.cpp(94): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-d:\documents\visual studio 2015\projects\sportpitgame\graphics\sprite.cpp(96): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-d:\documents\visual studio 2015\projects\sportpitgame\graphics\sprite.cpp(97): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-d:\documents\visual studio 2015\projects\sportpitgame\graphics\sprite.cpp(177): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-d:\documents\visual studio 2015\projects\sportpitgame\graphics\sprite.cpp(178): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-d:\documents\visual studio 2015\projects\sportpitgame\graphics\sprite.cpp(180): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-d:\documents\visual studio 2015\projects\sportpitgame\graphics\sprite.cpp(181): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-d:\documents\visual studio 2015\projects\sportpitgame\graphics\sprite.cpp(183): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-d:\documents\visual studio 2015\projects\sportpitgame\graphics\sprite.cpp(184): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-d:\documents\visual studio 2015\projects\sportpitgame\graphics\sprite.cpp(186): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-d:\documents\visual studio 2015\projects\sportpitgame\graphics\sprite.cpp(187): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-  Line.cpp
-  Graphics.cpp
-  Создание кода...
-  Компиляция...
-  TextBlock.cpp
-  Создание кода...
-     ╤ючфрхЄё  сшсышюЄхър D:\Documents\Visual Studio 2015\Projects\SportPitGame\Libs\Debug\Graphics.lib ш юс·хъЄ D:\Documents\Visual Studio 2015\Projects\SportPitGame\Libs\Debug\Graphics.exp
   Graphics.vcxproj -> D:\Documents\Visual Studio 2015\Projects\SportPitGame\Libs\Debug\Graphics.dll
   D:\Documents\Visual Studio 2015\Projects\SportPitGame\Libs\Debug\Graphics.dll
   Скопировано файлов: 1.

@@ -23,6 +23,6 @@ protected:
 	Sprite *sprite;
 	glm::mat4 *model;
 private:
-	SpriteShader *spriteShader;
+	GLuint spriteShaderId;
 };
 

@@ -35,8 +35,10 @@ void TextFont::DrawText(std::string text, int size, glm::vec4 *color, float x, f
 				model = glm::translate(model, glm::vec3(glyphs[j].width/2 , -glyphs[j].height/2, 0));
 				model = glm::translate(model, glm::vec3(glyphs[j].xOffset, -glyphs[j].yOffset, 0));
 				sprite->SetShape(glyphs[j].x, glyphs[j].y, glyphs[j].width, glyphs[j].height);
+
 				sprite->SetColor(color);
 				sprite->Draw(&model, projection, &glm::mat4(1), spriteShader);
+
 				model = glm::translate(model, glm::vec3(-glyphs[j].xOffset, glyphs[j].yOffset, 0));
 				model = glm::translate(model, glm::vec3(-glyphs[j].width / 2, glyphs[j].height/2, 0));
 				model = glm::translate(model, glm::vec3(glyphs[j].xAdvance, 0, 0));

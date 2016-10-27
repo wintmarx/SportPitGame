@@ -35,7 +35,6 @@ Unit::~Unit()
 {
 	delete sprite;
 	delete model;
-	delete spriteShader;
 	delete sprite;
 }
 
@@ -47,6 +46,7 @@ void Unit::InitializeUnit(glm::vec3 *position)
 	direction = glm::vec3(0);
 	model = new glm::mat4(1);
 	*model = glm::translate(*model, *position);
+	*model = glm::scale(*model, glm::vec3(-1, 1, 1));
 }
 
 void Unit::Draw(glm::mat4 *projection, glm::mat4 *view, Graphics *graphics)

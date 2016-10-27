@@ -2,9 +2,9 @@
 
 
 
-SpriteShader::SpriteShader(GLint programId)
+SpriteShader::SpriteShader(const char *vFilePath, const char *fFilePath) 
+	: Shader(vFilePath, fFilePath)
 {
-	this->programId = programId;
 	mvpShLoc = glGetUniformLocation(programId, "MVP");
 	matDiffColorShLoc = glGetUniformLocation(programId, "materialDiffuseColor");
 	texSamplerShLoc = glGetUniformLocation(programId, "textureSampler");

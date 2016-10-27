@@ -3,7 +3,7 @@
 
 
 Cola::Cola(int width, int height, glm::vec3 *position)
-	: Food("cocacola.png", width, height, position)
+	: Food("..//..//Data//Textures//Food//lq//cola.png", width, height, position)
 {
 	calories = 210;
 	fats = 0;

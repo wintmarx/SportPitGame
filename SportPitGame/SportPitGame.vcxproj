@@ -19,11 +19,31 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\GameEngine\Banana.cpp" />
+    <ClCompile Include="..\GameEngine\Burger.cpp" />
+    <ClCompile Include="..\GameEngine\Cola.cpp" />
+    <ClCompile Include="..\GameEngine\Croissant.cpp" />
+    <ClCompile Include="..\GameEngine\Donut.cpp" />
+    <ClCompile Include="..\GameEngine\Food.cpp" />
+    <ClCompile Include="..\GameEngine\Game.cpp" />
+    <ClCompile Include="..\GameEngine\Player.cpp" />
+    <ClCompile Include="..\GameEngine\Unit.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Bin\Debug\Data\Shaders\fragment.shader" />
     <None Include="..\Bin\Debug\Data\Shaders\vertex.shader" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\GameEngine\Banana.h" />
+    <ClInclude Include="..\GameEngine\Burger.h" />
+    <ClInclude Include="..\GameEngine\Cola.h" />
+    <ClInclude Include="..\GameEngine\Croissant.h" />
+    <ClInclude Include="..\GameEngine\Donut.h" />
+    <ClInclude Include="..\GameEngine\Food.h" />
+    <ClInclude Include="..\GameEngine\Game.h" />
+    <ClInclude Include="..\GameEngine\Player.h" />
+    <ClInclude Include="..\GameEngine\Unit.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F08FAAD2-C5BC-4400-B6D8-804653A2ADB8}</ProjectGuid>

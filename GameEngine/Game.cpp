@@ -2,6 +2,9 @@
 #include "Player.h"
 #include "Burger.h"
 #include "Cola.h"
+#include "Banana.h"
+#include "Donut.h"
+#include "Croissant.h"
 #include "Food.h"
 #include <math.h>
 #include <iostream>
@@ -46,19 +49,25 @@ Game::Game(Graphics *graphics)
 
 	srand((uint32_t)time(0));
 
-	//LoadLayout("text.layout");
+	LoadLayout("..//..//Data//Layouts//text.layout");
 
 	int step = 0;
 	for (int i = 0; i < cellsCount; i++)
 	{
 		for (int j = 0; j < cellsCount; j++)
 		{
-			field[i][j] = (int)(rand()%10);
+			field[i][j] = (int)(rand()%8) + 1;
 			step = int(rand() % (10 * fieldSize) + fieldSize / 2);
 			if (field[i][j] == 1)
 				food.push_back(new Burger(fieldSize, fieldSize, &glm::vec3(j * step, i * step, 0)));
 			if (field[i][j] == 2)
 				food.push_back(new Cola(fieldSize, fieldSize, &glm::vec3(j * step, i * step, 0)));
+			if (field[i][j] == 3)
+				food.push_back(new Croissant(fieldSize, fieldSize, &glm::vec3(j * step, i * step, 0)));
+			if (field[i][j] == 4)
+				food.push_back(new Donut(fieldSize, fieldSize, &glm::vec3(j * step, i * step, 0)));
+			if (field[i][j] == 5)
+				food.push_back(new Banana(fieldSize, fieldSize, &glm::vec3(j * step, i * step, 0)));
 		}
 	}
 }
