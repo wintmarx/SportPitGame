@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SportPitGame", "SportPitGame\SportPitGame.vcxproj", "{F08FAAD2-C5BC-4400-B6D8-804653A2ADB8}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -10,11 +10,16 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SportPitGame", "SportPitGam
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Graphics", "Graphics\Graphics.vcxproj", "{ED11199B-53BC-4022-BDCB-14A5510DAA2E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2272E251-9C29-4C62-B3F4-772C1771CD00} = {2272E251-9C29-4C62-B3F4-772C1771CD00}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameEngine", "GameEngine\GameEngine.vcxproj", "{449E93C9-B80F-4C15-81ED-3D714CF96704}"
 	ProjectSection(ProjectDependencies) = postProject
 		{ED11199B-53BC-4022-BDCB-14A5510DAA2E} = {ED11199B-53BC-4022-BDCB-14A5510DAA2E}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FilesIOLibrary", "FilesIOLibrary\FilesIOLibrary.vcxproj", "{2272E251-9C29-4C62-B3F4-772C1771CD00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +53,14 @@ Global
 		{449E93C9-B80F-4C15-81ED-3D714CF96704}.Release|x64.Build.0 = Release|x64
 		{449E93C9-B80F-4C15-81ED-3D714CF96704}.Release|x86.ActiveCfg = Release|Win32
 		{449E93C9-B80F-4C15-81ED-3D714CF96704}.Release|x86.Build.0 = Release|Win32
+		{2272E251-9C29-4C62-B3F4-772C1771CD00}.Debug|x64.ActiveCfg = Debug|x64
+		{2272E251-9C29-4C62-B3F4-772C1771CD00}.Debug|x64.Build.0 = Debug|x64
+		{2272E251-9C29-4C62-B3F4-772C1771CD00}.Debug|x86.ActiveCfg = Debug|Win32
+		{2272E251-9C29-4C62-B3F4-772C1771CD00}.Debug|x86.Build.0 = Debug|Win32
+		{2272E251-9C29-4C62-B3F4-772C1771CD00}.Release|x64.ActiveCfg = Release|x64
+		{2272E251-9C29-4C62-B3F4-772C1771CD00}.Release|x64.Build.0 = Release|x64
+		{2272E251-9C29-4C62-B3F4-772C1771CD00}.Release|x86.ActiveCfg = Release|Win32
+		{2272E251-9C29-4C62-B3F4-772C1771CD00}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

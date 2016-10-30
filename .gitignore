@@ -1,5 +1,4 @@
 /x64
-/SportPitGame.VC.db
 /GameEngine/Debug
 /GameEngine/Release
 /GameEngine/x64
@@ -9,5 +8,10 @@
 /SportPitGame/Debug
 /SportPitGame/Release
 /SportPitGame/x64
+/FilesIOLibrary/Debug
+/FilesIOLibrary/Release
+/FilesIOLibrary/x64
 /.vs
 /SportPitGame.sdf
+/SportPitGame.VC.VC.opendb
+/SportPitGame.VC.db

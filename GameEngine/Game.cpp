@@ -6,11 +6,8 @@
 #include "Donut.h"
 #include "Croissant.h"
 #include "Food.h"
-#include <math.h>
-#include <iostream>
 #include <vector>
 #include <string>
-#include <ctime>
 
 using namespace glm;
 
@@ -44,7 +41,6 @@ Game::Game(Graphics *graphics)
 
 	cameraPosition = vec3(0);
 	cameraZoom = vec3(1);
-
 	player = new Player(fieldSize, fieldSize, &vec3(fieldSize/2, fieldSize/2, 0));
 
 	srand((uint32_t)time(0));
@@ -119,30 +115,12 @@ void Game::Render(Graphics *graphics)
 
 	//graphics->arialFont->DrawText(&FPS[0], 72, &vec4(1, 1, 1, 1), 0, 100, &projection, graphics->spriteShader, false);
 
-	for (int i = 0; i < graphics->textBlocks.size(); i++)
+	for (uint32_t i = 0; i < graphics->textBlocks.size(); i++)
 	{
 		graphics->DrawText(graphics->textBlocks[i], &projection, graphics->spriteShader, false);
 	}
 
 	//std::cout << glGetError() << std::endl;
-}
-
-template <typename T>
-void Game::WriteBinaryValue(std::ofstream *output, T value)
-{
-	for (int i = 0, pow = 1; i < sizeof(T); i++)
-	{
-		*output << (uint8_t)((value & (0xff * pow)) >> (8 * i));
-		pow *= 256;
-	}
-}
-
-template <typename T>
-void Game::ReadBinaryValue(uint8_t **buffer, T *value, uint32_t *offset)
-{
-	*value = *(T*)&(*buffer)[*offset];
-	*offset += sizeof(T);
-	std::cout << std::endl << +*value;
 }
 
 void Game::LoadLayout(const char *filePath)
@@ -151,7 +129,7 @@ void Game::LoadLayout(const char *filePath)
 	uint32_t size;
 	uint32_t offset = 3;
 
-	if (!LoadFile(filePath, true, &buffer, &size))
+	if (!FilesIOLibrary::LoadFile(filePath, true, &buffer, &size))
 	{
 		std::cout << "\nLoading layout error";
 		delete[] buffer;
@@ -159,36 +137,36 @@ void Game::LoadLayout(const char *filePath)
 	}
 
 	uint32_t textBlocksCount;
-	ReadBinaryValue(&buffer, &textBlocksCount, &offset);
+	FilesIOLibrary::ReadBinaryValue(&buffer, &textBlocksCount, &offset);
 
 	for (uint32_t i = 0; i < textBlocksCount; i++)
 	{
 		float x;
-		ReadBinaryValue(&buffer, &x, &offset);
+		FilesIOLibrary::ReadBinaryValue(&buffer, &x, &offset);
 		x *= graphics->screenWidth;
 
 		float y;
-		ReadBinaryValue(&buffer, &y, &offset);
+		FilesIOLibrary::ReadBinaryValue(&buffer, &y, &offset);
 		y *= graphics->screenHeight;
 
 		float fontSize;
-		ReadBinaryValue(&buffer, &fontSize, &offset);
+		FilesIOLibrary::ReadBinaryValue(&buffer, &fontSize, &offset);
 		fontSize *= graphics->screenHeight;
 
 		vec4 color;
-		ReadBinaryValue(&buffer, &color.r, &offset);
-		ReadBinaryValue(&buffer, &color.g, &offset);
-		ReadBinaryValue(&buffer, &color.b, &offset);
-		ReadBinaryValue(&buffer, &color.a, &offset);
+		for (int i = 0; i < color.length(); i++)
+		{
+			FilesIOLibrary::ReadBinaryValue(&buffer, &color[i], &offset);
+		}
 
 		uint32_t textLength;
-		ReadBinaryValue(&buffer, &textLength, &offset);
+		FilesIOLibrary::ReadBinaryValue(&buffer, &textLength, &offset);
 
 		std::string text = "";
 		for (uint32_t j = 0; j < textLength; j++)
 		{
 			char glyph;
-			ReadBinaryValue(&buffer, &glyph, &offset);
+			FilesIOLibrary::ReadBinaryValue(&buffer, &glyph, &offset);
 			text.push_back(glyph);
 			std::cout << std::endl << +text[j];
 		}
@@ -197,49 +175,6 @@ void Game::LoadLayout(const char *filePath)
 
 	delete[] buffer;
 }
-
-bool Game::LoadFile(const char *fileName, bool binary, uint8_t **buffer, uint32_t *size)
-{
-	FILE     *input;
-	uint32_t fileSize, readed;
-
-	const char mode[] = { 'r', binary ? 'b' : 't', '\0' };
-
-	if ((input = fopen(fileName, mode)) == NULL)
-	{
-		std::cout << "\nCan\'t open file";
-		return false;
-	}
-
-	fseek(input, 0, SEEK_END);
-	fileSize = (uint32_t)ftell(input);
-	rewind(input);
-
-	if (fileSize == 0)
-	{
-		fclose(input);
-		std::cout << "\nFile size = 0";
-		return false;
-	}
-
-	*buffer = new uint8_t[fileSize];
-
-	readed = fread(*buffer, 1, fileSize, input);
-
-	fclose(input);
-
-	if (readed != fileSize)
-	{
-		std::cout << "\nCan't read all file";
-		delete[] * buffer;
-		return false;
-	}
-
-	*size = fileSize;
-
-	return true;
-}
-
 
 void Game::OnKeyPress(int buttonID, bool isPressed)
 {

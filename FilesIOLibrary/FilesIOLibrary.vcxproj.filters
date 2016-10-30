@@ -15,16 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
+    <ClInclude Include="FilesIOLibrary.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Bin\Debug\Data\Shaders\fragment.shader">
-      <Filter>Файлы ресурсов</Filter>
-    </None>
-    <None Include="..\Bin\Debug\Data\Shaders\vertex.shader">
-      <Filter>Файлы ресурсов</Filter>
-    </None>
+    <ClCompile Include="FilesIOLibrary.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

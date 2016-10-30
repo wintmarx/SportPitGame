@@ -10,6 +10,7 @@
 #include <ctime>
 #include "../Graphics/Sprite.h"
 #include "../Graphics/Graphics.h"
+#include "../FilesIOLibrary/FilesIOLibrary.h"
 
 class Game
 {
@@ -22,13 +23,6 @@ public:
 	GAME_API void OnKeyRelease(int buttonID);
 private:
 	Graphics *graphics;
-	template <typename T>
-	void WriteBinaryValue(std::ofstream *output, T value);
-	template <typename T>
-	void ReadBinaryValue(uint8_t **buffer, T *value, uint32_t *offset);
-	void SaveLayout(Graphics *graphics);
 	void LoadLayout(const char *filePath);
-	bool LoadFile(const char *fileName, bool binary, uint8_t **buffer, uint32_t *size);
-	
 };
 
