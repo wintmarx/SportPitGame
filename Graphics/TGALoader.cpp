@@ -1,4 +1,4 @@
-#include "TextureTGA.h"
+#include "TGALoader.h"
 #include <iostream>
 #include <stdio.h>
 #include <string>
@@ -84,43 +84,4 @@ void TextureDestroy(GLuint texture)
 	// освободим занятый индекс текстуры
 	glBindTexture(GL_TEXTURE_2D, 0);
 	glDeleteTextures(1, &texture);
-}
-
-bool LoadFile(const char *fileName, bool binary, uint8_t **buffer, uint32_t *size)
-{
-	FILE     *input;
-	uint32_t fileSize, readed;
-
-	const char mode[] = { 'r', binary ? 'b' : 't', '\0' };
-
-	if ((input = fopen(fileName, mode)) == NULL)
-	{
-		return false;
-	}
-
-	fseek(input, 0, SEEK_END);
-	fileSize = (uint32_t)ftell(input);
-	rewind(input);
-
-	if (fileSize == 0)
-	{
-		fclose(input);
-		return false;
-	}
-
-	*buffer = new uint8_t[fileSize];
-
-	readed = fread(*buffer, 1, fileSize, input);
-
-	fclose(input);
-
-	if (readed != fileSize)
-	{
-		delete[] * buffer;
-		return false;
-	}
-
-	*size = fileSize;
-
-	return true;
 }

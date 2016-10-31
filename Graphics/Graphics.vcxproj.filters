@@ -57,10 +57,13 @@
     <ClInclude Include="TextFont.h">
       <Filter>Заголовочные файлы\Text</Filter>
     </ClInclude>
-    <ClInclude Include="TextureTGA.h">
+    <ClInclude Include="PNGLoader.h">
       <Filter>Заголовочные файлы\Textures</Filter>
     </ClInclude>
-    <ClInclude Include="PNGLoader.h">
+    <ClInclude Include="Texture.h">
+      <Filter>Заголовочные файлы\Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="TGALoader.h">
       <Filter>Заголовочные файлы\Textures</Filter>
     </ClInclude>
   </ItemGroup>
@@ -86,10 +89,13 @@
     <ClCompile Include="TextFont.cpp">
       <Filter>Файлы исходного кода\Text</Filter>
     </ClCompile>
-    <ClCompile Include="TextureTGA.cpp">
+    <ClCompile Include="PNGLoader.cpp">
       <Filter>Файлы исходного кода\Textures</Filter>
     </ClCompile>
-    <ClCompile Include="PNGLoader.cpp">
+    <ClCompile Include="Texture.cpp">
+      <Filter>Файлы исходного кода\Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="TGALoader.cpp">
       <Filter>Файлы исходного кода\Textures</Filter>
     </ClCompile>
   </ItemGroup>

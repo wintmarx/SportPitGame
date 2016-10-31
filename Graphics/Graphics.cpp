@@ -1,9 +1,4 @@
 #include "Graphics.h"
-#include <iostream>
-#include <stdio.h>
-#include <string>
-#include <vector>
-#include <fstream>
 
 Graphics::Graphics()
 {

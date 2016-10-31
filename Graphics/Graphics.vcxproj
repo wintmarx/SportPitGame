@@ -28,7 +28,8 @@
     <ClInclude Include="SpriteShader.h" />
     <ClInclude Include="TextBlock.h" />
     <ClInclude Include="TextFont.h" />
-    <ClInclude Include="TextureTGA.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="TGALoader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graphics.cpp" />
@@ -39,7 +40,8 @@
     <ClCompile Include="SpriteShader.cpp" />
     <ClCompile Include="TextBlock.cpp" />
     <ClCompile Include="TextFont.cpp" />
-    <ClCompile Include="TextureTGA.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TGALoader.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{ED11199B-53BC-4022-BDCB-14A5510DAA2E}</ProjectGuid>
