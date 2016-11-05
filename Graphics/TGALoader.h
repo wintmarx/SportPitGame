@@ -1,14 +1,7 @@
-#ifndef TEXTURETGA_H
-#define TEXTURETGA_H
+#pragma once
 
 #include "GLHeaders.h"
 
-// создает текстуру из TGA-файла с изображением
-GLuint TextureCreateFromTGA(const char *fileName, int* width, int* height);
 
-bool LoadFile(const char *fileName, bool binary, uint8_t **buffer, uint32_t *size);
+GLuint LoadTGA(std::vector<uint8_t> *image, uint32_t *width, uint32_t *height, int *internalFormat, int *format, const char *fileName);
 
-// удаляет текстуру
-void TextureDestroy(GLuint texture);
-
-#endif /* TEXTURE_H */

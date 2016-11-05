@@ -66,6 +66,9 @@
     <ClInclude Include="TGALoader.h">
       <Filter>Заголовочные файлы\Textures</Filter>
     </ClInclude>
+    <ClInclude Include="TexturesController.h">
+      <Filter>Заголовочные файлы\Textures</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graphics.cpp">
@@ -96,6 +99,9 @@
       <Filter>Файлы исходного кода\Textures</Filter>
     </ClCompile>
     <ClCompile Include="TGALoader.cpp">
+      <Filter>Файлы исходного кода\Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="TexturesController.cpp">
       <Filter>Файлы исходного кода\Textures</Filter>
     </ClCompile>
   </ItemGroup>

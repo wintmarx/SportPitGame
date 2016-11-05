@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 #include "PNGLoader.h"
-#include "TextureTGA.h"
+#include "TGALoader.h"
 
 Sprite::Sprite(int width, int height, glm::vec4 *color)
 {
@@ -15,20 +15,17 @@ Sprite::Sprite(int width, int height, glm::vec4 *color)
 
 Sprite::Sprite(const char *filePath)
 {
-	LoadTexture(filePath);
 	InitializeSprite();
 }
 
 Sprite::Sprite(const char *filePath, glm::vec4 *color)
 {
-	LoadTexture(filePath);
 	this->color = *color;
 	InitializeSprite();
 }
 
 Sprite::Sprite(int width, int height, const char * filePath)
 {
-	LoadTexture(filePath);
 	this->width = width;
 	this->height = height;
 	InitializeSprite();
@@ -132,43 +129,6 @@ void Sprite::InitializeSprite()
 	delete vertices;
 	delete indices;
 	delete uvs;
-}
-
-void Sprite::LoadTexture(const char* filePath)
-{
-	color = glm::vec4(-1);
-
-	// Load file and decode image.
-	std::vector<unsigned char> image;
-	unsigned int width, height;
-	unsigned int error = lodepng::decode(image, width, height, filePath);
-
-	// If there's an error, display it.
-	if (error != 0)
-	{
-		std::cout << "error " << error << ": " << lodepng_error_text(error) << std::endl;
-		return;
-	}
-
-	// запросим у OpenGL свободный индекс текстуры
-	glGenTextures(1, &textureId);
-
-	// сделаем текстуру активной
-	glBindTexture(GL_TEXTURE_2D, textureId);
-
-	// установим параметры фильтрации текстуры - линейная фильтрация
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-	// установим параметры "оборачивания" текстуры - отсутствие оборачивания
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-
-	// загрузим данные о цвете в текущую автивную текстуру
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, &image[0]);
-
-	this->width = width;
-	this->height = height;
 }
 
 void Sprite::SetShape(float x, float y, int width, int height)

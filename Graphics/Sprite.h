@@ -25,7 +25,6 @@ public:
 	int height;
 	
 private:
-	void LoadTexture(const char* filePath);
 	void InitializeSprite();
 	static const int vertexCount = 4;
 	static const int indexCount = 6;

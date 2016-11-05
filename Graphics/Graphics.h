@@ -7,9 +7,10 @@
 
 #include "GLHeaders.h"
 #include "SpriteShader.h"
-#include "TextureTGA.h"
+#include "TGALoader.h"
 #include "Line.h"
 #include "TextBlock.h"
+#include "TexturesController.h"
 #include <vector>
 
 class Graphics
@@ -29,6 +30,7 @@ public:
 	std::vector<TextBlock*> textBlocks;
 private:
 	GLuint vertexArrayId;
+	TexturesController *texturesController;
 	Line *line;
 };
 
