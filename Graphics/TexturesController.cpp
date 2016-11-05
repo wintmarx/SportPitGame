@@ -17,15 +17,14 @@ TexturesController::~TexturesController()
 }
 
 
-int TexturesController::AddTexture(const char *filePath)
+uint32_t TexturesController::AddTexture(const char *filePath)
 {
-	for (int i = 0; i < textures->size(); i++)
+	for (uint8_t i = 0; i < textures->size(); i++)
 		if ((*textures)[i]->IsEqualFilePath(filePath)) 
 			return i + 1;
-	
-	int length = strlen(filePath);
+
 	std::string ext;
-	for (int i = length - 1; i > 0; i--)
+	for (int i = strlen(filePath) - 1; i > 0; i--)
 	{
 		if (filePath[i] == '.')
 			break;
@@ -42,7 +41,7 @@ int TexturesController::AddTexture(const char *filePath)
 		if (error != 0)
 		{
 			std::cout << "\nerror " << error << ": " << lodepng_error_text(error) << std::endl;
-			return;
+			return 0;
 		}
 		format = GL_RGBA;
 		internalFormat = GL_RGBA;
@@ -51,7 +50,7 @@ int TexturesController::AddTexture(const char *filePath)
 	{
 		error = LoadTGA(image, &width, &height, &internalFormat, &format, filePath);
 		if (error < 0)
-			return;
+			return 0;
 	}
 	uint32_t textureId;
 
@@ -72,8 +71,20 @@ int TexturesController::AddTexture(const char *filePath)
 	// загрузим данные о цвете в текущую автивную текстуру
 	glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, width, height, 0, format, GL_UNSIGNED_BYTE, &image[0]);
 
-	textures->push_back(new Texture(image, filePath, textureId));
+	textures->push_back(new Texture(image, filePath, textureId, width, height));
 	delete image;
 
 	return textureId;
 }
+
+uint32_t TexturesController::GetTextureWidth(uint32_t textureId)
+{
+	return (*textures)[textureId-1]->GetWidth();
+}
+
+uint32_t TexturesController::GetTextureHeight(uint32_t textureId)
+{
+	return (*textures)[textureId - 1]->GetHeight();
+}
+
+

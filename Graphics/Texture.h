@@ -6,12 +6,16 @@ class Texture
 {
 public:
 	~Texture();
-	Texture(std::vector<uint8_t> *image, const char *filePath, int id);
+	Texture(std::vector<uint8_t> *image, const char *filePath, uint32_t id, uint32_t width, uint32_t height);
 	bool IsEqualFilePath(const char *filePath);
 	int GetId();
+	int GetWidth();
+	int GetHeight();
 private:
 	std::vector<uint8_t> *image;
-	int id;
+	uint32_t id;
+	uint32_t width;
+	uint32_t height;
 	const char *filePath;
 };
 

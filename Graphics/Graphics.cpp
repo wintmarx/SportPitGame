@@ -12,11 +12,13 @@ Graphics::Graphics()
 	glGenVertexArrays(1, &vertexArrayId);
 	glBindVertexArray(vertexArrayId);
 	spriteShader = new SpriteShader("..//..//Data//Shaders//vertex.shader", "..//..//Data//Shaders//fragment.shader");
-	line = new Line(0, 0, 0, 0, &glm::vec4(0, 0, 0, 0));
-	arialFont = new TextFont("..//..//Data//Fonts//arial.fnt");
-	chillerFont = new TextFont("..//..//Data//Fonts//Chiller.fnt");
-	calibriFont = new TextFont("..//..//Data//Fonts//calibri.fnt");
-	sagoePrintFont = new TextFont("..//..//Data//Fonts//sagoePrint.fnt");
+	texturesController = new TexturesController();
+	//Sprite::SetTexturesController(texturesController);
+	line = new Line();
+	//arialFont = new TextFont("..//..//Data//Fonts//arial.fnt");
+	//chillerFont = new TextFont("..//..//Data//Fonts//Chiller.fnt");
+	//calibriFont = new TextFont("..//..//Data//Fonts//calibri.fnt");
+	//sagoePrintFont = new TextFont("..//..//Data//Fonts//sagoePrint.fnt");
 }
 
 Graphics::~Graphics()

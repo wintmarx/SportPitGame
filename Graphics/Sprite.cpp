@@ -4,7 +4,7 @@
 #include "PNGLoader.h"
 #include "TGALoader.h"
 
-Sprite::Sprite(int width, int height, glm::vec4 *color)
+Sprite::Sprite(uint32_t width, uint32_t height, glm::vec4 *color)
 {
 	this->color = *color;
 	this->textureId = 0;
@@ -15,19 +15,26 @@ Sprite::Sprite(int width, int height, glm::vec4 *color)
 
 Sprite::Sprite(const char *filePath)
 {
+	//textureId = texturesController->AddTexture(filePath);
+	//height = texturesController->GetTextureHeight(textureId);
+	//width = texturesController->GetTextureWidth(textureId);
 	InitializeSprite();
 }
 
 Sprite::Sprite(const char *filePath, glm::vec4 *color)
 {
 	this->color = *color;
+	//textureId = texturesController->AddTexture(filePath);
+	//height = texturesController->GetTextureHeight(textureId);
+	//width = texturesController->GetTextureWidth(textureId);
 	InitializeSprite();
 }
 
-Sprite::Sprite(int width, int height, const char * filePath)
+Sprite::Sprite(uint32_t width, uint32_t height, const char *filePath)
 {
 	this->width = width;
 	this->height = height;
+	//textureId = texturesController->AddTexture(filePath);
 	InitializeSprite();
 }
 
@@ -131,7 +138,7 @@ void Sprite::InitializeSprite()
 	delete uvs;
 }
 
-void Sprite::SetShape(float x, float y, int width, int height)
+void Sprite::SetShape(float x, float y, uint32_t width, uint32_t height)
 {
 	float *vertices = (float*)malloc(sizeof(float) * vertexCount * 2);
 	vertices[0] = -width / 2;
@@ -172,6 +179,11 @@ void Sprite::SetShape(float x, float y, int width, int height)
 void Sprite::SetColor(glm::vec4 *color)
 {
 	this->color = *color;
+}
+
+void Sprite::SetTexturesController(TexturesController *_texturesController)
+{
+	//texturesController = _texturesController;
 }
 
 

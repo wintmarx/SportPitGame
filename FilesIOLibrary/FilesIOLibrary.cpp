@@ -73,7 +73,7 @@ bool FilesIOLibrary::LoadFile(const char *fileName, bool binary, uint8_t **buffe
 	if (readed != fileSize)
 	{
 		std::cout << "\nCan't read all file";
-		delete[] * buffer;
+		delete[] *buffer;
 		return false;
 	}
 

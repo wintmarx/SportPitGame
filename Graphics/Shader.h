@@ -4,6 +4,7 @@
 #include <fstream>
 #include <vector>
 #include "GLHeaders.h"
+#include "../FilesIOLibrary/FilesIOLibrary.h"
 
 
 class Shader
@@ -13,7 +14,6 @@ public:
 	GLint programId;
 	~Shader();
 private:
-	bool GetShaderCode(std::string* code, const char* filePath);
 	void LoadShaders(const char *vFilePath, const char *fFilePath);
 };
 
