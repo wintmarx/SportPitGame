@@ -20,7 +20,7 @@ struct TGAHeader
 };
 #pragma pack()
 
-GLuint LoadTGA(std::vector<uint8_t> *image, uint32_t *width, uint32_t *height, int *internalFormat, int *format, const char *fileName)
+GLuint LoadTGA(std::vector<uint8_t> *image, int *width, int *height, int *internalFormat, int *format, const char *fileName)
 {
 	TGAHeader *header;
 	uint8_t   *buffer;
@@ -39,6 +39,8 @@ GLuint LoadTGA(std::vector<uint8_t> *image, uint32_t *width, uint32_t *height, i
 	}
 
 	header = (TGAHeader*)buffer;
+	*width = header->width;
+	*height = header->height;
 
 	for (uint32_t i = sizeof(TGAHeader) + header->idlength; i < size; i++)
 	{
@@ -58,6 +60,6 @@ GLuint LoadTGA(std::vector<uint8_t> *image, uint32_t *width, uint32_t *height, i
 	*internalFormat = (*format == GL_BGR ? GL_RGB8 : GL_RGBA8);
 
 	delete[] buffer;
-	delete header;
+	//delete header;
 	return 0;
 }

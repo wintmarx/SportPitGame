@@ -9,13 +9,13 @@ Unit::Unit(int width, int height, glm::vec4 *color, glm::vec3 *position)
 	InitializeUnit(position);
 }
 
-Unit::Unit(int width, int height, const char * filePath, glm::vec3 * position)
+Unit::Unit(int width, int height, const char *filePath, glm::vec3 *position)
 {
 	sprite = new Sprite(width, height, filePath);
 	InitializeUnit(position);
 }
 
-Unit::Unit(const char * filePath, glm::vec3 * position)
+Unit::Unit(const char *filePath, glm::vec3 *position)
 {
 	sprite = new Sprite(filePath);
 	InitializeUnit(position);

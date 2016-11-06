@@ -20,10 +20,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Bin\Debug\Data\Shaders\fragment.shader">
+    <None Include="..\Data\Shaders\fragment.shader">
       <Filter>Файлы ресурсов</Filter>
     </None>
-    <None Include="..\Bin\Debug\Data\Shaders\vertex.shader">
+    <None Include="..\Data\Shaders\vertex.shader">
       <Filter>Файлы ресурсов</Filter>
     </None>
   </ItemGroup>

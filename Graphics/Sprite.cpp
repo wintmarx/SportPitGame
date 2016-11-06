@@ -4,7 +4,7 @@
 #include "PNGLoader.h"
 #include "TGALoader.h"
 
-Sprite::Sprite(uint32_t width, uint32_t height, glm::vec4 *color)
+Sprite::Sprite(int width, int height, glm::vec4 *color)
 {
 	this->color = *color;
 	this->textureId = 0;
@@ -30,7 +30,7 @@ Sprite::Sprite(const char *filePath, glm::vec4 *color)
 	InitializeSprite();
 }
 
-Sprite::Sprite(uint32_t width, uint32_t height, const char *filePath)
+Sprite::Sprite(int width, int height, const char *filePath)
 {
 	this->width = width;
 	this->height = height;
@@ -85,6 +85,8 @@ void Sprite::Draw(glm::mat4 *model, glm::mat4 *projection, glm::mat4 *view, Spri
 	glDisableVertexAttribArray(1);
 }
 
+const int Sprite::vertexCount = 4;
+const int Sprite::indexCount = 6;
 void Sprite::InitializeSprite()
 {
 	float *vertices = (float*)malloc(sizeof(float) * vertexCount * 2);
@@ -138,20 +140,20 @@ void Sprite::InitializeSprite()
 	delete uvs;
 }
 
-void Sprite::SetShape(float x, float y, uint32_t width, uint32_t height)
+void Sprite::SetShape(float x, float y, int width, int height)
 {
 	float *vertices = (float*)malloc(sizeof(float) * vertexCount * 2);
 	vertices[0] = -width / 2;
-	vertices[1] = height / 2;
+	vertices[1] = -height / 2;
 
 	vertices[2] = -width / 2;
-	vertices[3] = -height / 2;
+	vertices[3] = height / 2;
 
 	vertices[4] = width / 2;
-	vertices[5] = -height / 2;
+	vertices[5] = height / 2;
 
 	vertices[6] = width / 2;
-	vertices[7] = height / 2;
+	vertices[7] = -height / 2;
 
 	float *uvs = (float*)malloc(sizeof(float) * vertexCount * 2);
 	uvs[0] = x / this->width;

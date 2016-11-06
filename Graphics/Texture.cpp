@@ -9,6 +9,7 @@ Texture::Texture(std::vector<uint8_t> *image, const char *filePath, uint32_t id,
 	this->width = width;
 	this->height = height;
 	this->image = new std::vector<uint8_t>(*image);
+	
 }
 
 Texture::~Texture()
@@ -19,7 +20,7 @@ Texture::~Texture()
 
 bool Texture::IsEqualFilePath(const char *filePath)
 {
-	return strcmpi(this->filePath, filePath) == 0;
+	return stricmp(this->filePath, filePath) == 0;
 }
 
 int Texture::GetId()

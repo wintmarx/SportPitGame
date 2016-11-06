@@ -52,11 +52,10 @@ uint32_t TexturesController::AddTexture(const char *filePath)
 	}
 	else if (stricmp(ext.c_str(), "tga") == 0)
 	{
-		error = LoadTGA(image, &width, &height, &internalFormat, &format, filePath);
+		error = LoadTGA(image, (int*)&width, (int*)&height, &internalFormat, &format, filePath);
 		if (error < 0)
 			return 0;
 	}
-
 
 	uint32_t textureId;
 
@@ -75,20 +74,20 @@ uint32_t TexturesController::AddTexture(const char *filePath)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
 	// загрузим данные о цвете в текущую автивную текстуру
-	glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, width, height, 0, format, GL_UNSIGNED_BYTE, &image[0]);
+	glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, (int)width, (int)height, 0, format, GL_UNSIGNED_BYTE, &image[0]);
 
 	textures->push_back(new Texture(image, filePath, textureId, width, height));
-	delete image;
 
+	delete image;
 	return textureId;
 }
 
-uint32_t TexturesController::GetTextureWidth(uint32_t textureId)
+int TexturesController::GetTextureWidth(uint32_t textureId)
 {
 	return textureId - 1 < textures->size() ? (*textures)[textureId-1]->GetWidth() : 0;
 }
 
-uint32_t TexturesController::GetTextureHeight(uint32_t textureId)
+int TexturesController::GetTextureHeight(uint32_t textureId)
 {
 	return textureId - 1 < textures->size() ? (*textures)[textureId - 1]->GetHeight() : 0;
 }

@@ -12,8 +12,8 @@ public:
 	TexturesController();
 	~TexturesController();
 	uint32_t AddTexture(const char *filePath);
-	uint32_t GetTextureWidth(uint32_t textureId);
-	uint32_t GetTextureHeight(uint32_t textureId);
+	int GetTextureWidth(uint32_t textureId);
+	int GetTextureHeight(uint32_t textureId);
 private:
 	std::vector<Texture*> *textures;
 };

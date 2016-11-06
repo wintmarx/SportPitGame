@@ -22,8 +22,8 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Bin\Debug\Data\Shaders\fragment.shader" />
-    <None Include="..\Bin\Debug\Data\Shaders\vertex.shader" />
+    <None Include="..\Data\Shaders\fragment.shader" />
+    <None Include="..\Data\Shaders\vertex.shader" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F08FAAD2-C5BC-4400-B6D8-804653A2ADB8}</ProjectGuid>
