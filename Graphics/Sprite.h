@@ -33,7 +33,6 @@ private:
 	glm::vec4 color;
 	uint32_t textureId;
 	static TexturesController *texturesController;
-
 	GLuint vertexBuffer;
 	GLuint textureBuffer;
 	GLuint indexBuffer;

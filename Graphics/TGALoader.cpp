@@ -27,7 +27,7 @@ GLuint LoadTGA(std::vector<uint8_t> *image, uint32_t *width, uint32_t *height, i
 	uint32_t  size;
 
 	// попытаемся загрузить текстуру из файла
-	if (!FilesIOLibrary::LoadFile(fileName, true, &buffer, &size))
+	if (!FilesIOLibrary::LoadFile(fileName, &buffer, &size))
 		return -1;
 
 	// если размер файла заведомо меньше заголовка TGA

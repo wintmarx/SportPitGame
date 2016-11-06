@@ -40,14 +40,12 @@ template FIOL_API void FilesIOLibrary::ReadBinaryValue(uint8_t **buffer, unsigne
 template FIOL_API void FilesIOLibrary::ReadBinaryValue(uint8_t **buffer, unsigned long *value, uint32_t *offset);
 template FIOL_API void FilesIOLibrary::ReadBinaryValue(uint8_t **buffer, unsigned long long *value, uint32_t *offset);
 
-bool FilesIOLibrary::LoadFile(const char *fileName, bool binary, uint8_t **buffer, uint32_t *size)
+bool FilesIOLibrary::LoadFile(const char *fileName, uint8_t **buffer, uint32_t *size)
 {
 	FILE     *input;
-	uint32_t fileSize, readed;
+	uint32_t fileSize, readed = 0;
 
-	const char mode[] = { 'r', binary ? 'b' : 't', '\0' };
-
-	if ((input = fopen(fileName, mode)) == NULL)
+	if ((input = fopen(fileName, "rb")) == NULL)
 	{
 		std::cout << "\nCan\'t open file";
 		return false;
@@ -72,11 +70,11 @@ bool FilesIOLibrary::LoadFile(const char *fileName, bool binary, uint8_t **buffe
 
 	if (readed != fileSize)
 	{
-		std::cout << "\nCan't read all file";
+		std::cout << "\nCan't read all file: \n" << *buffer;
 		delete[] *buffer;
 		return false;
 	}
-
+	
 	*size = fileSize;
 
 	return true;

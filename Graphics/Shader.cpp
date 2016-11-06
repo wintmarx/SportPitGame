@@ -24,20 +24,20 @@ void Shader::LoadShaders(const char* vFilePath, const char* fFilePath)
 {
 	GLuint vId = glCreateShader(GL_VERTEX_SHADER);
 	GLuint fId = glCreateShader(GL_FRAGMENT_SHADER);
-	unsigned char *vCode;
-	unsigned char *fCode;
+	uint8_t *vCode;
+	uint8_t *fCode;
 	uint32_t sizeVCode;
 	uint32_t sizeFCode;
 
-
-	if (!FilesIOLibrary::LoadFile(vFilePath, false, &vCode, &sizeVCode)) return;
-	if (!FilesIOLibrary::LoadFile(vFilePath, false, &fCode, &sizeFCode)) return;
+	if (!FilesIOLibrary::LoadFile(vFilePath, &vCode, &sizeVCode)) return;
+	if (!FilesIOLibrary::LoadFile(fFilePath, &fCode, &sizeFCode)) return;
 
 	GLint Result = GL_FALSE;
 	int InfoLogLength;
 
 	printf("\nCompiling shader: %s", vFilePath);
-	glShaderSource(vId, 1, (const char*const*)vCode, NULL);
+	char const *vCodeTmp = (char*)vCode;
+	glShaderSource(vId, 1, &vCodeTmp, (GLint*)&sizeVCode);
 	glCompileShader(vId);
 	glGetShaderiv(vId, GL_COMPILE_STATUS, &Result);
 	glGetShaderiv(vId, GL_INFO_LOG_LENGTH, &InfoLogLength);
@@ -53,7 +53,8 @@ void Shader::LoadShaders(const char* vFilePath, const char* fFilePath)
 	}
 
 	printf("\nCompiling shader: %s", fFilePath);
-	glShaderSource(fId, 1, (const char*const*)fCode, NULL);
+	char const *fCodeTmp = (char*)fCode;
+	glShaderSource(fId, 1, &fCodeTmp, (GLint*)&sizeFCode);
 	glCompileShader(fId);
 	glGetShaderiv(fId, GL_COMPILE_STATUS, &Result);
 	glGetShaderiv(fId, GL_INFO_LOG_LENGTH, &InfoLogLength);

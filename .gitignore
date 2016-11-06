@@ -15,3 +15,9 @@
 /SportPitGame.sdf
 /SportPitGame.VC.VC.opendb
 /SportPitGame.VC.db
+/Libs/Debug
+/Libs/Release
+/Bin/Debug/*.ilk
+/Bin/Debug/*.pdb
+/Bin/Release/*.ilk
+/Bin/Release/*.pdb

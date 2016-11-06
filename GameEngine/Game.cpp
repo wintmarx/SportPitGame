@@ -45,7 +45,7 @@ Game::Game(Graphics *graphics)
 
 	srand((uint32_t)time(0));
 
-	LoadLayout("..//..//Data//Layouts//text.layout");
+	//LoadLayout("..//..//Data//Layouts//text.layout");
 
 	int step = 0;
 	for (int i = 0; i < cellsCount; i++)
@@ -106,19 +106,19 @@ void Game::Render(Graphics *graphics)
 		graphics->DrawLine(j * fieldSize, 0, j * fieldSize, cellsCount * fieldSize, &glm::vec4(0, 0, 1, 1), &(projection*view));
 	}*/
 
-	for (uint32_t i = 0; i < food.size(); i++)
+	/*for (uint32_t i = 0; i < food.size(); i++)
 	{
 		food[i]->Draw(&projection, &view, graphics);
-	}
+	}*/
 
 	player->Draw(&projection, &view, graphics);
 
 	//graphics->arialFont->DrawText(&FPS[0], 72, &vec4(1, 1, 1, 1), 0, 100, &projection, graphics->spriteShader, false);
 
-	for (uint32_t i = 0; i < graphics->textBlocks.size(); i++)
-	{
-		graphics->DrawText(graphics->textBlocks[i], &projection, graphics->spriteShader, false);
-	}
+	//for (uint32_t i = 0; i < graphics->textBlocks.size(); i++)
+	//{
+	//	graphics->DrawText(graphics->textBlocks[i], &projection, graphics->spriteShader, false);
+	//}
 
 	//std::cout << glGetError() << std::endl;
 }
@@ -129,7 +129,7 @@ void Game::LoadLayout(const char *filePath)
 	uint32_t size;
 	uint32_t offset = 3;
 
-	if (!FilesIOLibrary::LoadFile(filePath, true, &buffer, &size))
+	if (!FilesIOLibrary::LoadFile(filePath, &buffer, &size))
 	{
 		std::cout << "\nLoading layout error";
 		delete[] buffer;

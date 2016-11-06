@@ -4,6 +4,7 @@
 
 TexturesController::TexturesController()
 {
+	textures = new std::vector<Texture*>();
 }
 
 
@@ -19,7 +20,7 @@ TexturesController::~TexturesController()
 
 uint32_t TexturesController::AddTexture(const char *filePath)
 {
-	for (uint8_t i = 0; i < textures->size(); i++)
+	for (uint32_t i = 0; i < textures->size(); i++)
 		if ((*textures)[i]->IsEqualFilePath(filePath)) 
 			return i + 1;
 
@@ -30,12 +31,15 @@ uint32_t TexturesController::AddTexture(const char *filePath)
 			break;
 		ext = filePath[i] + ext;
 	}
-	std::vector<uint8_t> *image;
+	std::vector<uint8_t> *image = new std::vector<uint8_t>();
 	uint32_t width, height;
 	uint32_t error;
 	int format, internalFormat;
 
-	if (strcmpi(ext.c_str(), "png"))
+	std::cout << "\next: " << ext.c_str();
+	std::cout << "\nstring: " << filePath;
+
+	if (stricmp(ext.c_str(), "png") == 0)
 	{
 		error = lodepng::decode(*image, width, height, filePath);
 		if (error != 0)
@@ -46,12 +50,14 @@ uint32_t TexturesController::AddTexture(const char *filePath)
 		format = GL_RGBA;
 		internalFormat = GL_RGBA;
 	}
-	else if (strcmpi(ext.c_str(), "tga"))
+	else if (stricmp(ext.c_str(), "tga") == 0)
 	{
 		error = LoadTGA(image, &width, &height, &internalFormat, &format, filePath);
 		if (error < 0)
 			return 0;
 	}
+
+
 	uint32_t textureId;
 
 	// запросим у OpenGL свободный индекс текстуры
@@ -79,12 +85,12 @@ uint32_t TexturesController::AddTexture(const char *filePath)
 
 uint32_t TexturesController::GetTextureWidth(uint32_t textureId)
 {
-	return (*textures)[textureId-1]->GetWidth();
+	return textureId - 1 < textures->size() ? (*textures)[textureId-1]->GetWidth() : 0;
 }
 
 uint32_t TexturesController::GetTextureHeight(uint32_t textureId)
 {
-	return (*textures)[textureId - 1]->GetHeight();
+	return textureId - 1 < textures->size() ? (*textures)[textureId - 1]->GetHeight() : 0;
 }
 
 

@@ -15,18 +15,18 @@ Sprite::Sprite(uint32_t width, uint32_t height, glm::vec4 *color)
 
 Sprite::Sprite(const char *filePath)
 {
-	//textureId = texturesController->AddTexture(filePath);
-	//height = texturesController->GetTextureHeight(textureId);
-	//width = texturesController->GetTextureWidth(textureId);
+	textureId = texturesController->AddTexture(filePath);
+	height = texturesController->GetTextureHeight(textureId);
+	width = texturesController->GetTextureWidth(textureId);
 	InitializeSprite();
 }
 
 Sprite::Sprite(const char *filePath, glm::vec4 *color)
 {
 	this->color = *color;
-	//textureId = texturesController->AddTexture(filePath);
-	//height = texturesController->GetTextureHeight(textureId);
-	//width = texturesController->GetTextureWidth(textureId);
+	textureId = texturesController->AddTexture(filePath);
+	height = texturesController->GetTextureHeight(textureId);
+	width = texturesController->GetTextureWidth(textureId);
 	InitializeSprite();
 }
 
@@ -34,7 +34,7 @@ Sprite::Sprite(uint32_t width, uint32_t height, const char *filePath)
 {
 	this->width = width;
 	this->height = height;
-	//textureId = texturesController->AddTexture(filePath);
+	textureId = texturesController->AddTexture(filePath);
 	InitializeSprite();
 }
 
@@ -181,9 +181,10 @@ void Sprite::SetColor(glm::vec4 *color)
 	this->color = *color;
 }
 
+TexturesController *Sprite::texturesController;
 void Sprite::SetTexturesController(TexturesController *_texturesController)
 {
-	//texturesController = _texturesController;
+	texturesController = _texturesController;
 }
 
 

@@ -8,10 +8,8 @@ Texture::Texture(std::vector<uint8_t> *image, const char *filePath, uint32_t id,
 	this->id = id;
 	this->width = width;
 	this->height = height;
-	for (int i = 0; i < image->size(); i++)
-		this->image->push_back((*image)[i]);
+	this->image = new std::vector<uint8_t>(*image);
 }
-
 
 Texture::~Texture()
 {

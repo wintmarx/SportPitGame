@@ -13,7 +13,7 @@ Graphics::Graphics()
 	glBindVertexArray(vertexArrayId);
 	spriteShader = new SpriteShader("..//..//Data//Shaders//vertex.shader", "..//..//Data//Shaders//fragment.shader");
 	texturesController = new TexturesController();
-	//Sprite::SetTexturesController(texturesController);
+	Sprite::SetTexturesController(texturesController);
 	line = new Line();
 	//arialFont = new TextFont("..//..//Data//Fonts//arial.fnt");
 	//chillerFont = new TextFont("..//..//Data//Fonts//Chiller.fnt");
@@ -25,10 +25,10 @@ Graphics::~Graphics()
 {
 	delete spriteShader;
 	delete line;
-	delete arialFont;
-	delete chillerFont;
-	delete calibriFont;
-	delete sagoePrintFont;
+	//delete arialFont;
+	//delete chillerFont;
+	//delete calibriFont;
+	//delete sagoePrintFont;
 	glDeleteVertexArrays(1, &vertexArrayId);
 }
 
