@@ -21,3 +21,5 @@
 /Bin/Debug/*.pdb
 /Bin/Release/*.ilk
 /Bin/Release/*.pdb
+/Bin/Release/*.iobj
+/Bin/Release/*.ipdb
