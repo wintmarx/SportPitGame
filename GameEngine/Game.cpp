@@ -97,19 +97,19 @@ void Game::Render(Graphics *graphics)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
-	for (int i = 0; i < cellsCount + 1; i++)
+	/*for (int i = 0; i < cellsCount + 1; i++)
 	{
 		graphics->DrawLine(0, i * fieldSize, cellsCount * fieldSize, i * fieldSize, &glm::vec4(0, 0, 1, 1), &(projection*view));
 	}
 	for (int j = 0; j < cellsCount + 1; j++)
 	{
 		graphics->DrawLine(j * fieldSize, 0, j * fieldSize, cellsCount * fieldSize, &glm::vec4(0, 0, 1, 1), &(projection*view));
-	}
+	}*/
 
-	/*for (uint32_t i = 0; i < food.size(); i++)
+	for (uint32_t i = 0; i < food.size(); i++)
 	{
 		food[i]->Draw(&projection, &view, graphics);
-	}*/
+	}
 
 	player->Draw(&projection, &view, graphics);
 

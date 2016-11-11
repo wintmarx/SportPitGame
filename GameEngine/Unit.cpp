@@ -51,5 +51,6 @@ void Unit::InitializeUnit(glm::vec3 *position)
 
 void Unit::Draw(glm::mat4 *projection, glm::mat4 *view, Graphics *graphics)
 {
-	sprite->Draw(model, projection, view, graphics->spriteShader);
+	if(position.x + (*view)[3].x > -sprite->width/2 && position.x + (*view)[3].x < graphics->screenWidth + sprite->width/2 && position.y + (*view)[3].y > -sprite->height/2 && position.y + (*view)[3].y < graphics->screenHeight + sprite->height/2)
+		sprite->Draw(model, projection, view, graphics->spriteShader);
 }

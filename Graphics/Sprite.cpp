@@ -18,6 +18,7 @@ Sprite::Sprite(const char *filePath)
 	textureId = texturesController->AddTexture(filePath);
 	height = texturesController->GetTextureHeight(textureId);
 	width = texturesController->GetTextureWidth(textureId);
+	color = glm::vec4(-1);
 	InitializeSprite();
 }
 
@@ -35,6 +36,7 @@ Sprite::Sprite(int width, int height, const char *filePath)
 	this->width = width;
 	this->height = height;
 	textureId = texturesController->AddTexture(filePath);
+	color = glm::vec4(-1);
 	InitializeSprite();
 }
 

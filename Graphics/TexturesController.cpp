@@ -10,7 +10,7 @@ TexturesController::TexturesController()
 
 TexturesController::~TexturesController()
 {
-	for (int i = 0; i < textures->size(); i++)
+	for (uint32_t i = 0; i < textures->size(); i++)
 	{
 		delete (*textures)[i];
 	}
@@ -36,8 +36,7 @@ uint32_t TexturesController::AddTexture(const char *filePath)
 	uint32_t error;
 	int format, internalFormat;
 
-	std::cout << "\next: " << ext.c_str();
-	std::cout << "\nstring: " << filePath;
+	//std::cout << "\next: " << ext.c_str();
 
 	if (stricmp(ext.c_str(), "png") == 0)
 	{
@@ -73,10 +72,11 @@ uint32_t TexturesController::AddTexture(const char *filePath)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
-	// загрузим данные о цвете в текущую автивную текстуру
-	glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, (int)width, (int)height, 0, format, GL_UNSIGNED_BYTE, &image[0]);
+	// загрузим данные о цвете в текущую активную текстуру
+	glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, width, height, 0, format, GL_UNSIGNED_BYTE, &(*image)[0]);
 
 	textures->push_back(new Texture(image, filePath, textureId, width, height));
+	std::cout << "\nTexture loaded: " << filePath;
 
 	delete image;
 	return textureId;
