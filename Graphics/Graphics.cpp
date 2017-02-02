@@ -2,6 +2,13 @@
 
 Graphics::Graphics()
 {
+	glewExperimental = GL_TRUE;
+	if (glewInit() != GLEW_OK)
+	{
+		fprintf(stderr, "GLEW init error");
+		return;
+	}
+
 	glEnable(GL_TEXTURE_2D);
 	glDisable(GL_CULL_FACE);
 	glDisable(GL_DEPTH_TEST);
@@ -38,10 +45,10 @@ void Graphics::DrawLine(float x1, float y1, float x2, float y2, glm::vec4 *color
 	line->Draw(projection, spriteShader);
 }
 
-void Graphics::DrawText(TextBlock *textBlock, glm::mat4 *projection, SpriteShader *spriteShader, bool isRected)
-{
-	textBlock->font->DrawText(textBlock->text, textBlock->fontSize, &textBlock->color, textBlock->x, textBlock->y, projection, spriteShader, isRected);
-}
+//void Graphics::DrawText(TextBlock *textBlock, glm::mat4 *projection, SpriteShader *spriteShader, bool isRected)
+//{
+//	textBlock->font->DrawText(textBlock->text, textBlock->fontSize, &textBlock->color, textBlock->x, textBlock->y, projection, spriteShader, isRected);
+//}
 
 
 

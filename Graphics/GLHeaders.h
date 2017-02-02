@@ -1,6 +1,6 @@
 #pragma once
 #include "..\Includes\glew\glew.h"
-#include "..\Includes\GL\gl.h"
+#include <gl\GL.h>
 #include "..\Includes\glfw3\glfw3.h"
-#include "..\Includes\glm\glm.hpp"
-#include "..\Includes\glm\gtx\transform.hpp"
+#include "glm\glm.hpp"
+#include "glm\gtx\transform.hpp"

@@ -33,7 +33,6 @@ bool Unit::IsOutField(const int cellsCountX, const int cellsCountY)
 
 Unit::~Unit()
 {
-	delete sprite;
 	delete model;
 	delete sprite;
 }

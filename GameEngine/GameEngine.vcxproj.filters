@@ -13,74 +13,38 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Файлы исходного кода\Food">
-      <UniqueIdentifier>{1fe6f62d-565c-4844-9d4b-3028400df7cf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Заголовочные файлы\Food">
-      <UniqueIdentifier>{9e2d126e-e7c6-4df3-8a8d-19e289a0c4c8}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Window.h">
+    <ClInclude Include="ScreenController.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="TextBlock.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
     <ClInclude Include="Unit.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
+    <ClInclude Include="Window.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h">
+    <ClInclude Include="Screen.h">
       <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="Banana.h">
-      <Filter>Заголовочные файлы\Food</Filter>
-    </ClInclude>
-    <ClInclude Include="Burger.h">
-      <Filter>Заголовочные файлы\Food</Filter>
-    </ClInclude>
-    <ClInclude Include="Cola.h">
-      <Filter>Заголовочные файлы\Food</Filter>
-    </ClInclude>
-    <ClInclude Include="Croissant.h">
-      <Filter>Заголовочные файлы\Food</Filter>
-    </ClInclude>
-    <ClInclude Include="Donut.h">
-      <Filter>Заголовочные файлы\Food</Filter>
-    </ClInclude>
-    <ClInclude Include="Food.h">
-      <Filter>Заголовочные файлы\Food</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="TextBlock.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="Unit.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
     <ClCompile Include="Window.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
+    <ClCompile Include="Screen.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
-    <ClCompile Include="Banana.cpp">
-      <Filter>Файлы исходного кода\Food</Filter>
-    </ClCompile>
-    <ClCompile Include="Burger.cpp">
-      <Filter>Файлы исходного кода\Food</Filter>
-    </ClCompile>
-    <ClCompile Include="Cola.cpp">
-      <Filter>Файлы исходного кода\Food</Filter>
-    </ClCompile>
-    <ClCompile Include="Croissant.cpp">
-      <Filter>Файлы исходного кода\Food</Filter>
-    </ClCompile>
-    <ClCompile Include="Donut.cpp">
-      <Filter>Файлы исходного кода\Food</Filter>
-    </ClCompile>
-    <ClCompile Include="Food.cpp">
-      <Filter>Файлы исходного кода\Food</Filter>
-    </ClCompile>
-    <ClCompile Include="Unit.cpp">
+    <ClCompile Include="ScreenController.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>

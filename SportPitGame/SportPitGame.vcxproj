@@ -19,11 +19,31 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Food\Banana.cpp" />
+    <ClCompile Include="Food\Burger.cpp" />
+    <ClCompile Include="Food\Cola.cpp" />
+    <ClCompile Include="Food\Croissant.cpp" />
+    <ClCompile Include="Food\Donut.cpp" />
+    <ClCompile Include="Food\Food.cpp" />
+    <ClCompile Include="GameScreen.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MenuScreen.cpp" />
+    <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Data\Shaders\fragment.shader" />
     <None Include="..\Data\Shaders\vertex.shader" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Food\Banana.h" />
+    <ClInclude Include="Food\Burger.h" />
+    <ClInclude Include="Food\Cola.h" />
+    <ClInclude Include="Food\Croissant.h" />
+    <ClInclude Include="Food\Donut.h" />
+    <ClInclude Include="Food\Food.h" />
+    <ClInclude Include="GameScreen.h" />
+    <ClInclude Include="MenuScreen.h" />
+    <ClInclude Include="Player.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F08FAAD2-C5BC-4400-B6D8-804653A2ADB8}</ProjectGuid>

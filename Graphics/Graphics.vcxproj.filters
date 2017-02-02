@@ -31,6 +31,12 @@
     <Filter Include="Файлы исходного кода\Textures">
       <UniqueIdentifier>{eb128b10-cf47-48be-ba7f-cf17ea1e995e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Заголовочные файлы\Shapes">
+      <UniqueIdentifier>{d0cf40ff-b19c-4012-ad73-c77689eed67a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Shapes">
+      <UniqueIdentifier>{4d698db7-6720-4493-a2fe-1032c21eb006}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GLHeaders.h">
@@ -39,20 +45,11 @@
     <ClInclude Include="Graphics.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="Line.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="Sprite.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
     <ClInclude Include="SpriteShader.h">
       <Filter>Заголовочные файлы\Shaders</Filter>
     </ClInclude>
     <ClInclude Include="Shader.h">
       <Filter>Заголовочные файлы\Shaders</Filter>
-    </ClInclude>
-    <ClInclude Include="TextBlock.h">
-      <Filter>Заголовочные файлы\Text</Filter>
     </ClInclude>
     <ClInclude Include="TextFont.h">
       <Filter>Заголовочные файлы\Text</Filter>
@@ -69,15 +66,21 @@
     <ClInclude Include="TexturesController.h">
       <Filter>Заголовочные файлы\Textures</Filter>
     </ClInclude>
+    <ClInclude Include="TextRenderer.h">
+      <Filter>Заголовочные файлы\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Line.h">
+      <Filter>Заголовочные файлы\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Заголовочные файлы\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangle.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graphics.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
-    <ClCompile Include="Line.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
-    <ClCompile Include="Sprite.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
     <ClCompile Include="Shader.cpp">
@@ -85,9 +88,6 @@
     </ClCompile>
     <ClCompile Include="SpriteShader.cpp">
       <Filter>Файлы исходного кода\Shaders</Filter>
-    </ClCompile>
-    <ClCompile Include="TextBlock.cpp">
-      <Filter>Файлы исходного кода\Text</Filter>
     </ClCompile>
     <ClCompile Include="TextFont.cpp">
       <Filter>Файлы исходного кода\Text</Filter>
@@ -103,6 +103,18 @@
     </ClCompile>
     <ClCompile Include="TexturesController.cpp">
       <Filter>Файлы исходного кода\Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="TextRenderer.cpp">
+      <Filter>Файлы исходного кода\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Line.cpp">
+      <Filter>Файлы исходного кода\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Файлы исходного кода\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangle.cpp">
+      <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

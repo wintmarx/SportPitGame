@@ -19,26 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Banana.h" />
-    <ClInclude Include="Burger.h" />
-    <ClInclude Include="Cola.h" />
-    <ClInclude Include="Croissant.h" />
-    <ClInclude Include="Donut.h" />
-    <ClInclude Include="Food.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="Player.h" />
+    <ClInclude Include="Screen.h" />
+    <ClInclude Include="ScreenController.h" />
+    <ClInclude Include="TextBlock.h" />
     <ClInclude Include="Unit.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Banana.cpp" />
-    <ClCompile Include="Burger.cpp" />
-    <ClCompile Include="Cola.cpp" />
-    <ClCompile Include="Croissant.cpp" />
-    <ClCompile Include="Donut.cpp" />
-    <ClCompile Include="Food.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Screen.cpp" />
+    <ClCompile Include="ScreenController.cpp" />
+    <ClCompile Include="TextBlock.cpp" />
     <ClCompile Include="Unit.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>

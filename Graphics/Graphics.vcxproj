@@ -23,11 +23,12 @@
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="PNGLoader.h" />
+    <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteShader.h" />
-    <ClInclude Include="TextBlock.h" />
     <ClInclude Include="TextFont.h" />
+    <ClInclude Include="TextRenderer.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TexturesController.h" />
     <ClInclude Include="TGALoader.h" />
@@ -36,11 +37,12 @@
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="PNGLoader.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteShader.cpp" />
-    <ClCompile Include="TextBlock.cpp" />
     <ClCompile Include="TextFont.cpp" />
+    <ClCompile Include="TextRenderer.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TexturesController.cpp" />
     <ClCompile Include="TGALoader.cpp" />

@@ -1,19 +1,24 @@
 #pragma once
-#include "..\\Graphics\Graphics.h"
-#include "..\\Graphics\Sprite.h"
+#include "..\Graphics\Graphics.h"
+#include "..\Graphics\Sprite.h"
+#ifdef GAMEENGINE_EXPORTS
+#define GAMEENGINE_API __declspec(dllexport) 
+#else
+#define GAMEENGINE_API __declspec(dllimport)
+#endif
 
 
 
 class Unit
 {
 public:
-	virtual void Draw(glm::mat4 *projection, glm::mat4 *view, Graphics *graphics);
-	virtual void Update(float deltaTime) = 0;
-	Unit(int width, int height, glm::vec4 *color, glm::vec3 *position);
-	Unit(int width, int height, const char* filePath, glm::vec3 *position);
-	Unit(const char* filePath, glm::vec3 *position);
-	bool IsOutField(const int cellsCountX, const int cellsCountY);
-	~Unit();
+	GAMEENGINE_API virtual void Draw(glm::mat4 *projection, glm::mat4 *view, Graphics *graphics);
+	GAMEENGINE_API virtual void Update(float deltaTime) = 0;
+	GAMEENGINE_API Unit(int width, int height, glm::vec4 *color, glm::vec3 *position);
+	GAMEENGINE_API Unit(int width, int height, const char* filePath, glm::vec3 *position);
+	GAMEENGINE_API Unit(const char* filePath, glm::vec3 *position);
+	GAMEENGINE_API bool IsOutField(const int cellsCountX, const int cellsCountY);
+	GAMEENGINE_API ~Unit();
 	glm::vec3 position;
 	glm::vec3 direction;
 	float velocityTimer;
