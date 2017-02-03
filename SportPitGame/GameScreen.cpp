@@ -13,6 +13,7 @@ GameScreen::GameScreen(int width, int height) : Screen(width, height)
 	projection = ortho(0.0f, width * 1.0f, 0.0f, height*1.0f, 1.0f, -1.0f);
 	view = mat4(1);
 
+
 	cameraPosition = vec3(0);
 	cameraZoom = vec3(1);
 }
