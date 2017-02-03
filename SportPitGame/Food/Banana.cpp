@@ -3,7 +3,7 @@
 
 
 Banana::Banana(int width, int height, glm::vec3 *position)
-	: Food("..//..//Data//Textures//Food//lq//banana.png", width, height, position)
+	: Food("..//..//Data//Textures//Food//lq//banananew.png", width, height, position)
 {
 	calories = 509;
 	fats = 29;

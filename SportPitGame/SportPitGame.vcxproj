@@ -32,6 +32,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Data\Shaders\fragment.shader" />
+    <None Include="..\Data\Shaders\text\sdftext.fs" />
+    <None Include="..\Data\Shaders\text\sdftext.vs" />
     <None Include="..\Data\Shaders\vertex.shader" />
   </ItemGroup>
   <ItemGroup>

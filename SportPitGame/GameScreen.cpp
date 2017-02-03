@@ -6,7 +6,7 @@ using namespace glm;
 GameScreen::GameScreen(int width, int height) : Screen(width, height)
 {
 	//fieldSizeX = screenWidth / cellsCountX;
-	fieldSize = (int)glm::round(width * 0.07f);//screenHeight / cellsCountY;
+	fieldSize = (int)glm::round(width * 0.06f);//screenHeight / cellsCountY;
 
 	glClearColor(.1f, .67f, 1.f, 1.f);
 

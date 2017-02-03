@@ -65,6 +65,12 @@
     <None Include="..\Data\Shaders\vertex.shader">
       <Filter>Файлы ресурсов</Filter>
     </None>
+    <None Include="..\Data\Shaders\text\sdftext.fs">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="..\Data\Shaders\text\sdftext.vs">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h">

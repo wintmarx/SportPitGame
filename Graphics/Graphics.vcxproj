@@ -24,6 +24,7 @@
     <ClInclude Include="Line.h" />
     <ClInclude Include="PNGLoader.h" />
     <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="SdfTextShader.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteShader.h" />
@@ -38,6 +39,7 @@
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="PNGLoader.cpp" />
     <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="SdfTextShader.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteShader.cpp" />

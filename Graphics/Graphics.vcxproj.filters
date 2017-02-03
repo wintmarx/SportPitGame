@@ -78,6 +78,9 @@
     <ClInclude Include="Rectangle.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="SdfTextShader.h">
+      <Filter>Заголовочные файлы\Shaders</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graphics.cpp">
@@ -115,6 +118,9 @@
     </ClCompile>
     <ClCompile Include="Rectangle.cpp">
       <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="SdfTextShader.cpp">
+      <Filter>Файлы исходного кода\Shaders</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
