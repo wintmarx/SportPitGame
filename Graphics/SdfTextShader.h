@@ -1,8 +1,14 @@
 #pragma once
-class SdfTextShader
+#include "GLHeaders.h"
+#include "Shader.h"
+
+class SdfTextShader : public Shader
 {
 public:
-	SdfTextShader();
-	~SdfTextShader();
+	SdfTextShader(const char *vFilePath, const char *fFilePath);
+	GLint mvpShLoc;
+	GLint texSamplerShLoc;
+	GLint colorShLoc;
+	GLint paramsShLoc;
 };
 
