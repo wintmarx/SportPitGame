@@ -5,9 +5,9 @@
 #define GRAPHICS_API __declspec(dllimport)
 #endif
 #include "GLHeaders.h"
-#include "Sprite.h"
+#include "SdfTextShader.h"
 #include <string>
-#include "Line.h"
+#include "../FilesIOLibrary/FilesIOLibrary.h"
 
 
 struct Glyph
@@ -39,6 +39,5 @@ private:
 	uint16_t lineHeight;
 	uint16_t base;
 	glm::mat4 model;
-	Line *line;
 };
 

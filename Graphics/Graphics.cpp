@@ -16,8 +16,6 @@ Graphics::Graphics()
 	glEnable(GL_BLEND);
 	glDisable(GL_ALPHA_TEST);
 
-	glGenVertexArrays(1, &vertexArrayId);
-	glBindVertexArray(vertexArrayId);
 	spriteShader = new SpriteShader("..//..//Data//Shaders//vertex.shader", "..//..//Data//Shaders//fragment.shader");
 	texturesController = new TexturesController();
 	Sprite::SetTexturesController(texturesController);
@@ -36,7 +34,6 @@ Graphics::~Graphics()
 	//delete chillerFont;
 	//delete calibriFont;
 	//delete sagoePrintFont;
-	glDeleteVertexArrays(1, &vertexArrayId);
 }
 
 void Graphics::DrawLine(float x1, float y1, float x2, float y2, glm::vec4 *color, glm::mat4 *projection)

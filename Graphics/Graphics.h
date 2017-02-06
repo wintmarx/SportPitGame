@@ -31,7 +31,6 @@ public:
 	TextFont *sagoePrintFont;*/
 	//std::vector<TextBlock*> textBlocks;
 private:
-	GLuint vertexArrayId;
 	TexturesController *texturesController;
 	Line *line;
 };

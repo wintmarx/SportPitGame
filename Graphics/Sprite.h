@@ -35,5 +35,6 @@ private:
 	GLuint vertexBuffer;
 	GLuint textureBuffer;
 	GLuint indexBuffer;
+	GLuint vertexArrayObject;
 };
 

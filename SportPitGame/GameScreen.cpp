@@ -130,15 +130,15 @@ void GameScreen::LoadLayout(const char *filePath)
 	{
 		float x;
 		FilesIOLibrary::ReadBinaryValue(&buffer, &x, &offset);
-		x *= width;
+		x = width;
 
 		float y;
 		FilesIOLibrary::ReadBinaryValue(&buffer, &y, &offset);
-		y *= height;
+		y = height;
 
 		float fontSize;
 		FilesIOLibrary::ReadBinaryValue(&buffer, &fontSize, &offset);
-		fontSize *= height;
+		fontSize = height;
 
 		vec4 color;
 		for (int i = 0; i < color.length(); i++)
