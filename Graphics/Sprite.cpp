@@ -81,8 +81,10 @@ void Sprite::Draw(glm::mat4 *model, glm::mat4 *projection, glm::mat4 *view, Spri
 	glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, (void*)0);
 	//glDrawArrays(GL_TRIANGLES, 0, 6);
 
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);
+	glBindVertexArray(0);
 }
 
 const int Sprite::vertexCount = 4;
@@ -129,7 +131,7 @@ void Sprite::InitializeSprite()
 	glGenBuffers(1, &vertexBuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * vertexCount * 2, vertices, GL_STATIC_DRAW);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
 
 	glGenBuffers(1, &textureBuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, textureBuffer);

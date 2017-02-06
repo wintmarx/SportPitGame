@@ -25,14 +25,13 @@ struct Glyph
 class TextFont
 {
 public:
-	GRAPHICS_API void DrawText(std::string text, int size, glm::vec4 *color, float x, float y, glm::mat4 *projection, SpriteShader *spriteShader, bool isRected);
+	GRAPHICS_API void DrawText(std::string text, int size, glm::vec4 *color, float x, float y, glm::mat4 *projection, SdfTextShader *spriteShader);
 	GRAPHICS_API TextFont(const char* filePath);
 	GRAPHICS_API ~TextFont();
 	uint8_t *fontName;
 private:
 	void LoadFont(const char *filePath);
 	bool LoadFile(const char *fileName, bool binary, uint8_t **buffer, uint32_t *size);
-	Sprite *sprite;
 	Glyph *glyphs;
 	uint32_t glyphsCount;
 	int16_t fontSize;

@@ -5,7 +5,7 @@
 #include <fstream>
 
 
-void TextFont::DrawText(std::string text, int size, glm::vec4 *color, float x, float y, glm::mat4 *projection, SdfTextShader *sdfTextShader, bool isRected)
+void TextFont::DrawText(std::string text, int size, glm::vec4 *color, float x, float y, glm::mat4 *projection, SdfTextShader *sdfTextShader)
 {
 	float sizeCoeff = size * 1.f / fontSize;
 	model = glm::translate(glm::vec3(x, y, 0));
@@ -27,10 +27,10 @@ void TextFont::DrawText(std::string text, int size, glm::vec4 *color, float x, f
 			{
 				model = glm::translate(model, glm::vec3(glyphs[j].width/2 , -glyphs[j].height/2, 0));
 				model = glm::translate(model, glm::vec3(glyphs[j].xOffset, -glyphs[j].yOffset, 0));
-				sprite->SetShape(glyphs[j].x, glyphs[j].y, glyphs[j].width, glyphs[j].height);
+				//sprite->SetShape(glyphs[j].x, glyphs[j].y, glyphs[j].width, glyphs[j].height);
 
-				sprite->SetColor(color);
-				sprite->Draw(&model, projection, &glm::mat4(1), spriteShader);
+				//sprite->SetColor(color);
+				//sprite->Draw(&model, projection, &glm::mat4(1), spriteShader);
 
 				model = glm::translate(model, glm::vec3(-glyphs[j].xOffset, glyphs[j].yOffset, 0));
 				model = glm::translate(model, glm::vec3(-glyphs[j].width / 2, glyphs[j].height/2, 0));
@@ -102,7 +102,7 @@ void TextFont::LoadFont(const char *filePath)
 
 	folderPath += textureFileName;
 
-	sprite = new Sprite(&folderPath[0]);
+	//sprite = new Sprite(&folderPath[0]);
 
 	glyphsCount = charsBlockLength / 20;
 

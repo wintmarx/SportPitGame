@@ -19,5 +19,6 @@ private:
 	static const int vertexCount = 2;
 	glm::vec4 color;
 	GLuint vertexBuffer;
+	GLuint vertexArrayObject;
 };
 

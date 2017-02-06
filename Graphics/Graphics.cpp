@@ -12,9 +12,9 @@ Graphics::Graphics()
 	glEnable(GL_TEXTURE_2D);
 	glDisable(GL_CULL_FACE);
 	glDisable(GL_DEPTH_TEST);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glEnable(GL_ALPHA_TEST);
 
 	spriteShader = new SpriteShader("..//..//Data//Shaders//vertex.shader", "..//..//Data//Shaders//fragment.shader");
 	texturesController = new TexturesController();

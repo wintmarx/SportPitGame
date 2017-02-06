@@ -16,6 +16,7 @@ Line::Line(float x1, float y1, float x2, float y2, glm::vec4 *color)
 Line::~Line()
 {
 	glDeleteBuffers(1, &vertexBuffer);
+	glDeleteVertexArrays(1, &vertexArrayObject);
 }
 
 void Line::Draw(glm::mat4 *projection, SpriteShader *spriteShader)
@@ -26,13 +27,11 @@ void Line::Draw(glm::mat4 *projection, SpriteShader *spriteShader)
 	glUniform4fv(spriteShader->matDiffColorShLoc, 1, &(color)[0]);
 	glUniform1i(spriteShader->isColoredShLoc, 0);
 
+	glBindVertexArray(vertexArrayObject);
 	glEnableVertexAttribArray(0);
-	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
-
 	glDrawArrays(GL_LINES, 0, vertexCount * 2);
-
 	glDisableVertexAttribArray(0);
+	glBindVertexArray(0);
 }
 
 void Line::SetLine(float x1, float y1, float x2, float y2, glm::vec4 * color)
@@ -46,6 +45,13 @@ void Line::SetLine(float x1, float y1, float x2, float y2, glm::vec4 * color)
 	vertices[2] = x2;
 	vertices[3] = y2;
 
+	glGenVertexArrays(1, &vertexArrayObject);
+	glBindVertexArray(vertexArrayObject);
+
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * vertexCount * 2, vertices, GL_STATIC_DRAW);
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
+	glBindVertexArray(0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	delete vertices;
 }
