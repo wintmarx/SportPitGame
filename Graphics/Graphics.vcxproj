@@ -19,11 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CommonSprite.h" />
     <ClInclude Include="GLHeaders.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="PNGLoader.h" />
     <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="SDFChar.h" />
     <ClInclude Include="SdfTextShader.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Sprite.h" />
@@ -35,10 +37,12 @@
     <ClInclude Include="TGALoader.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CommonSprite.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="PNGLoader.cpp" />
     <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="SDFChar.cpp" />
     <ClCompile Include="SdfTextShader.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Sprite.cpp" />

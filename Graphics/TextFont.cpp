@@ -17,6 +17,7 @@ void TextFont::DrawText(std::string text, int size, glm::vec4 *color, float x, f
 		for (int j = 0; j < glyphsCount; j++)
 		{
 			glyph = (text[i] < 0 ? 256 : 0) + text[i];
+
 			if (glyph == '\n') 
 			{
 				model[3].x = x;
@@ -27,10 +28,10 @@ void TextFont::DrawText(std::string text, int size, glm::vec4 *color, float x, f
 			{
 				model = glm::translate(model, glm::vec3(glyphs[j].width/2 , -glyphs[j].height/2, 0));
 				model = glm::translate(model, glm::vec3(glyphs[j].xOffset, -glyphs[j].yOffset, 0));
-				//sprite->SetShape(glyphs[j].x, glyphs[j].y, glyphs[j].width, glyphs[j].height);
+				sprite->SetShape(glyphs[j].x, glyphs[j].y, glyphs[j].width, glyphs[j].height);
 
-				//sprite->SetColor(color);
-				//sprite->Draw(&model, projection, &glm::mat4(1), spriteShader);
+				sprite->SetColor(color);
+				sprite->Draw(&model, projection, &glm::mat4(1));
 
 				model = glm::translate(model, glm::vec3(-glyphs[j].xOffset, glyphs[j].yOffset, 0));
 				model = glm::translate(model, glm::vec3(-glyphs[j].width / 2, glyphs[j].height/2, 0));
@@ -102,7 +103,7 @@ void TextFont::LoadFont(const char *filePath)
 
 	folderPath += textureFileName;
 
-	//sprite = new Sprite(&folderPath[0]);
+	sprite = new CommonSprite(&folderPath[0]);
 
 	glyphsCount = charsBlockLength / 20;
 

@@ -6,6 +6,7 @@
 #endif
 #include "GLHeaders.h"
 #include "SdfTextShader.h"
+#include "CommonSprite.h"
 #include <string>
 #include "../FilesIOLibrary/FilesIOLibrary.h"
 
@@ -31,12 +32,13 @@ public:
 	uint8_t *fontName;
 private:
 	void LoadFont(const char *filePath);
-	bool LoadFile(const char *fileName, bool binary, uint8_t **buffer, uint32_t *size);
 	Glyph *glyphs;
+	CommonSprite *sprite;
 	uint32_t glyphsCount;
 	int16_t fontSize;
 	uint16_t lineHeight;
 	uint16_t base;
 	glm::mat4 model;
+	
 };
 

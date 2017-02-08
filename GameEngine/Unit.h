@@ -1,6 +1,6 @@
 #pragma once
 #include "..\Graphics\Graphics.h"
-#include "..\Graphics\Sprite.h"
+#include "..\Graphics\CommonSprite.h"
 #ifdef GAMEENGINE_EXPORTS
 #define GAMEENGINE_API __declspec(dllexport) 
 #else
@@ -25,7 +25,7 @@ public:
 	float velocity;
 protected:
 	void InitializeUnit(glm::vec3 *position);
-	Sprite *sprite;
+	CommonSprite *sprite;
 	glm::mat4 *model;
 private:
 	GLuint spriteShaderId;

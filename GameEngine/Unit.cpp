@@ -5,19 +5,19 @@
 
 Unit::Unit(int width, int height, glm::vec4 *color, glm::vec3 *position)
 {
-	sprite = new Sprite(width, height, color);
+	sprite = new CommonSprite(width, height, color);
 	InitializeUnit(position);
 }
 
 Unit::Unit(int width, int height, const char *filePath, glm::vec3 *position)
 {
-	sprite = new Sprite(width, height, filePath);
+	sprite = new CommonSprite(width, height, filePath);
 	InitializeUnit(position);
 }
 
 Unit::Unit(const char *filePath, glm::vec3 *position)
 {
-	sprite = new Sprite(filePath);
+	sprite = new CommonSprite(filePath);
 	InitializeUnit(position);
 }
 
@@ -51,5 +51,5 @@ void Unit::InitializeUnit(glm::vec3 *position)
 void Unit::Draw(glm::mat4 *projection, glm::mat4 *view, Graphics *graphics)
 {
 	if(position.x + (*view)[3].x > -sprite->width/2 && position.x + (*view)[3].x < graphics->screenWidth + sprite->width/2 && position.y + (*view)[3].y > -sprite->height/2 && position.y + (*view)[3].y < graphics->screenHeight + sprite->height/2)
-		sprite->Draw(model, projection, view, graphics->spriteShader);
+		sprite->Draw(model, projection, view);
 }

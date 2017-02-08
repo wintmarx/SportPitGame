@@ -1,41 +1,12 @@
 #include "Sprite.h"
 #include <iostream>
 #include <vector>
-#include "PNGLoader.h"
-#include "TGALoader.h"
 
-Sprite::Sprite(int width, int height, glm::vec4 *color)
-{
-	this->color = *color;
-	this->textureId = 0;
-	this->width = width;
-	this->height = height;
-	InitializeSprite();
-}
-
-Sprite::Sprite(const char *filePath)
-{
-	textureId = texturesController->AddTexture(filePath);
-	height = texturesController->GetTextureHeight(textureId);
-	width = texturesController->GetTextureWidth(textureId);
-	color = glm::vec4(-1);
-	InitializeSprite();
-}
-
-Sprite::Sprite(const char *filePath, glm::vec4 *color)
-{
-	this->color = *color;
-	textureId = texturesController->AddTexture(filePath);
-	height = texturesController->GetTextureHeight(textureId);
-	width = texturesController->GetTextureWidth(textureId);
-	InitializeSprite();
-}
-
-Sprite::Sprite(int width, int height, const char *filePath)
+Sprite::Sprite(GLuint textureId, int width, int height)
 {
 	this->width = width;
 	this->height = height;
-	textureId = texturesController->AddTexture(filePath);
+	this->textureId = textureId;
 	color = glm::vec4(-1);
 	InitializeSprite();
 }
@@ -46,45 +17,6 @@ Sprite::~Sprite()
 	glDeleteBuffers(1, &vertexBuffer);
 	glDeleteBuffers(1, &indexBuffer);
 	glDeleteBuffers(1, &textureBuffer);
-}
-
-void Sprite::Draw(glm::mat4 *model, glm::mat4 *projection, glm::mat4 *view, SpriteShader *spriteShader)
-{
-	glUseProgram(spriteShader->programId);
-
-	if (textureId > 0)
-	{
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, textureId);
-		glUniform1i(spriteShader->texSamplerShLoc, 0);
-	}
-
-	glUniformMatrix4fv(spriteShader->mvpShLoc, 1, GL_FALSE, &((*projection) * (*view) * (*model))[0][0]);
-	glUniform4fv(spriteShader->matDiffColorShLoc, 1, &(color)[0]);
-
-	if (textureId > 0 && color.x >= 0)
-	{
-		glUniform1i(spriteShader->isColoredShLoc, 1);
-	}
-	else
-	{
-		glUniform1i(spriteShader->isColoredShLoc, 0);
-	}
-
-	glBindVertexArray(vertexArrayObject);
-
-	glEnableVertexAttribArray(0);
-	glEnableVertexAttribArray(1);
-
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-
-	glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, (void*)0);
-	//glDrawArrays(GL_TRIANGLES, 0, 6);
-
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-	glDisableVertexAttribArray(0);
-	glDisableVertexAttribArray(1);
-	glBindVertexArray(0);
 }
 
 const int Sprite::vertexCount = 4;
