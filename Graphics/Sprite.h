@@ -13,11 +13,12 @@ class Sprite
 {
 
 public:
-	GRAPHICS_API Sprite(GLuint textureId, int width, int height);
+	GRAPHICS_API Sprite(char *filePath, int width, int height);
 	GRAPHICS_API ~Sprite();
 	GRAPHICS_API virtual void Draw(glm::mat4 *model, glm::mat4 *projection, glm::mat4 *view) = 0;
 	GRAPHICS_API void SetShape(float x, float y, int width, int height);
 	GRAPHICS_API void SetColor(glm::vec4 *color);
+	GRAPHICS_API void Set(glm::vec4 *color);
 	static void SetTexturesController(TexturesController *texturesController);
 	int width;
 	int height;

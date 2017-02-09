@@ -2,11 +2,11 @@
 #include <iostream>
 #include <vector>
 
-Sprite::Sprite(GLuint textureId, int width, int height)
+Sprite::Sprite(char *filePath, int width, int height)
 {
 	this->width = width;
 	this->height = height;
-	this->textureId = textureId;
+	this->textureId = texturesController->AddTexture(filePath);
 	color = glm::vec4(-1);
 	InitializeSprite();
 }
@@ -83,7 +83,7 @@ void Sprite::InitializeSprite()
 	delete uvs;
 }
 
-void Sprite::SetShape(float x, float y, int width, int height)
+void Sprite::SetShape(float uvX, float uvY, int width, int height)
 {
 	float *vertices = (float*)malloc(sizeof(float) * vertexCount * 2);
 	vertices[0] = -width / 2;
@@ -99,17 +99,17 @@ void Sprite::SetShape(float x, float y, int width, int height)
 	vertices[7] = -height / 2;
 
 	float *uvs = (float*)malloc(sizeof(float) * vertexCount * 2);
-	uvs[0] = x / this->width;
-	uvs[1] = y / this->height;
+	uvs[0] = uvX / this->width;
+	uvs[1] = uvY / this->height;
 
-	uvs[2] = x / this->width;
-	uvs[3] = y / this->height + height * 1.f / this->height;
+	uvs[2] = uvX / this->width;
+	uvs[3] = uvY / this->height + height * 1.f / this->height;
 
-	uvs[4] = x / this->width + width * 1.f / this->width;
-	uvs[5] = y / this->height + height * 1.f / this->height;
+	uvs[4] = uvX / this->width + width * 1.f / this->width;
+	uvs[5] = uvY / this->height + height * 1.f / this->height;
 
-	uvs[6] = x / this->width + width *1.f / this->width;
-	uvs[7] = y / this->height;
+	uvs[6] = uvX / this->width + width *1.f / this->width;
+	uvs[7] = uvY / this->height;
 
 	glBindBuffer(GL_ARRAY_BUFFER, textureBuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * vertexCount * 2, uvs, GL_STATIC_DRAW);
