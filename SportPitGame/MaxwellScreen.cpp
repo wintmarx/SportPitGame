@@ -36,13 +36,14 @@ void MaxwellScreen::Render(Graphics *graphics)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	graphics->DrawLine(100, 200, 100, 300, &glm::vec4(1.0f, 1.0f, 1, 1.0f), &projection);
-	graphics->DrawLine(100, 300, 200, 250, &glm::vec4(1.0f, 1.0f, 1, 1.0f), &projection);
-	graphics->DrawLine(200, 250, 300, 300, &glm::vec4(1.0f, 1.0f, 1, 1.0f), &projection);
-	graphics->DrawLine(300, 300, 300, 200, &glm::vec4(1.0f, 1.0f, 1, 1.0f), &projection);
+	//graphics->DrawLine(100, 200, 100, 300, &glm::vec4(1.0f, 1.0f, 1, 1.0f), &projection);
+	//graphics->DrawLine(100, 300, 200, 250, &glm::vec4(1.0f, 1.0f, 1, 1.0f), &projection);
+	//graphics->DrawLine(200, 250, 300, 300, &glm::vec4(1.0f, 1.0f, 1, 1.0f), &projection);
+	//graphics->DrawLine(300, 300, 300, 200, &glm::vec4(1.0f, 1.0f, 1, 1.0f), &projection);
 
 	double y;
 	int h = 3;
+
 	for (int i = 0; i < 60 * h; i+=h)
 	{
 		y = 300;//maxwellFunc(i, v0) * 200000;
