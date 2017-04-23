@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Файлы исходного кода">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Заголовочные файлы">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Food">
+      <UniqueIdentifier>{9c883b21-1a8d-4066-9f2f-09488828dc40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Заголовочные файлы\Food">
+      <UniqueIdentifier>{8748baf7-07aa-4639-9bfe-d1777751643b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Заголовочные файлы\Screens">
+      <UniqueIdentifier>{192c9c09-36bf-4882-ab59-b3127e450912}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Screens">
+      <UniqueIdentifier>{e700b98d-ec70-4e69-8651-287e646c45ae}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="Food\Banana.cpp">
+      <Filter>Файлы исходного кода\Food</Filter>
+    </ClCompile>
+    <ClCompile Include="Food\Burger.cpp">
+      <Filter>Файлы исходного кода\Food</Filter>
+    </ClCompile>
+    <ClCompile Include="Food\Cola.cpp">
+      <Filter>Файлы исходного кода\Food</Filter>
+    </ClCompile>
+    <ClCompile Include="Food\Croissant.cpp">
+      <Filter>Файлы исходного кода\Food</Filter>
+    </ClCompile>
+    <ClCompile Include="Food\Donut.cpp">
+      <Filter>Файлы исходного кода\Food</Filter>
+    </ClCompile>
+    <ClCompile Include="Food\Food.cpp">
+      <Filter>Файлы исходного кода\Food</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScreen.cpp">
+      <Filter>Файлы исходного кода\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuScreen.cpp">
+      <Filter>Файлы исходного кода\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="MaxwellScreen.cpp">
+      <Filter>Файлы исходного кода\Screens</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Data\Shaders\fragment.shader">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="..\Data\Shaders\vertex.shader">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="..\Data\Shaders\text\sdftext.fs">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="..\Data\Shaders\text\sdftext.vs">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Player.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="Food\Banana.h">
+      <Filter>Заголовочные файлы\Food</Filter>
+    </ClInclude>
+    <ClInclude Include="Food\Burger.h">
+      <Filter>Заголовочные файлы\Food</Filter>
+    </ClInclude>
+    <ClInclude Include="Food\Cola.h">
+      <Filter>Заголовочные файлы\Food</Filter>
+    </ClInclude>
+    <ClInclude Include="Food\Croissant.h">
+      <Filter>Заголовочные файлы\Food</Filter>
+    </ClInclude>
+    <ClInclude Include="Food\Donut.h">
+      <Filter>Заголовочные файлы\Food</Filter>
+    </ClInclude>
+    <ClInclude Include="Food\Food.h">
+      <Filter>Заголовочные файлы\Food</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScreen.h">
+      <Filter>Заголовочные файлы\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuScreen.h">
+      <Filter>Заголовочные файлы\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="MaxwellScreen.h">
+      <Filter>Заголовочные файлы\Screens</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
