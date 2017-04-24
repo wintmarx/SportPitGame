@@ -9,6 +9,8 @@
 
 using namespace glm;
 double v0;
+double *velocities;
+std::ifstream simFile;
 MaxwellScreen::MaxwellScreen(int width, int height) : Screen(width, height)
 {
 	glClearColor(.1f, .67f, 1.f, 1.f);
@@ -77,5 +79,20 @@ void MaxwellScreen::OnKeyRelease(int buttonID)
 
 void MaxwellScreen::Initialize()
 {
+	simFile.open("simulation.txt", std::ios_base::in);
+	std::string line;
+	std::string buff;
+	std::getline(simFile, line);
+	for (int i = 0; i < line.size(); i++)
+	{
 
+	}
+	while (!simFile.eof())
+	{
+		std::getline(simFile, line);
+		if (line[0] = 'v')
+		{
+
+		}
+	}
 }
