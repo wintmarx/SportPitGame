@@ -38,11 +38,6 @@ void MaxwellScreen::Render(Graphics *graphics)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	//graphics->DrawLine(100, 200, 100, 300, &glm::vec4(1.0f, 1.0f, 1, 1.0f), &projection);
-	//graphics->DrawLine(100, 300, 200, 250, &glm::vec4(1.0f, 1.0f, 1, 1.0f), &projection);
-	//graphics->DrawLine(200, 250, 300, 300, &glm::vec4(1.0f, 1.0f, 1, 1.0f), &projection);
-	//graphics->DrawLine(300, 300, 300, 200, &glm::vec4(1.0f, 1.0f, 1, 1.0f), &projection);
-
 	double y;
 	double x;
 	double h = 1. * width / intervalsCount;
@@ -51,21 +46,13 @@ void MaxwellScreen::Render(Graphics *graphics)
 	{
 		x = i * h;
 		y = velocitiesHistogramValues[i] * 150000;
-
 		graphics->DrawLine(x, 0, x, y, &glm::vec4(1, 1, 0, 1), &(projection*view));
-		//graphics->DrawLine(x+1, 0, x+1, y, &glm::vec4(1, 1, 0, 1), &(projection*view));
-		graphics->DrawLine(x, maxwellFunc(i * deltaV, v0) * 150000 - 2, x, maxwellFunc(i * deltaV, v0) * 150000, &glm::vec4(0, 0, 0, 1), &(projection*view));
 	}
-
-	h = width / 4. / v0;
+	h = 4. * v0 / width;
 	for (int i = 0; i < width; i++)
 	{
-		y = maxwellFunc(i * h, v0) * 150000;
-		graphics->DrawLine(i, y - 2, i, y, &glm::vec4(1, 0, 0, 1), &(projection*view));
-		//graphics->DrawLine(x, maxwellFunc(i * deltaV, v0) * 150000 - 2, x, maxwellFunc(i * deltaV, v0) * 150000, &glm::vec4(1, 0, 0, 1), &(projection*view));
-		//graphics->DrawLine(x + 1, maxwellFunc(i * deltaV, v0) * 150000 - 2, x + 1, maxwellFunc(i * deltaV, v0) * 150000, &glm::vec4(1, 0, 0, 1), &(projection*view));
+		graphics->DrawLine(i, maxwellFunc(i * h, v0) * 150000, i+1, maxwellFunc((i+1) * h, v0) * 150000, &glm::vec4(1, 0, 0, 1), &(projection*view));
 	}
-	////std::cout << v0 << std::endl;
 }
 
 void MaxwellScreen::OnKeyPress(int buttonID, bool isPressed)
