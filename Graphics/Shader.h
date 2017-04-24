@@ -10,10 +10,13 @@
 class Shader
 {
 public:
-	Shader(const char *vFilePath, const char *fFilePath);
+	Shader(const char *vFile, const char *fFile);
+	bool IsShaderEqual(const char *vFile, const char *fFile);
 	GLint programId;
 	~Shader();
 private:
-	void LoadShaders(const char *vFilePath, const char *fFilePath);
+	void LoadShaders(const char *vFile, const char *fFile);
+	std::string vFile;
+	std::string fFile;
 };
 

@@ -22,9 +22,9 @@
     <ClInclude Include="CommonSprite.h" />
     <ClInclude Include="GLHeaders.h" />
     <ClInclude Include="Graphics.h" />
+    <ClInclude Include="GraphicsResources.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="PNGLoader.h" />
-    <ClInclude Include="Rectangle.h" />
     <ClInclude Include="SDFChar.h" />
     <ClInclude Include="SdfTextShader.h" />
     <ClInclude Include="Shader.h" />
@@ -39,9 +39,9 @@
   <ItemGroup>
     <ClCompile Include="CommonSprite.cpp" />
     <ClCompile Include="Graphics.cpp" />
+    <ClCompile Include="GraphicsResources.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="PNGLoader.cpp" />
-    <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="SDFChar.cpp" />
     <ClCompile Include="SdfTextShader.cpp" />
     <ClCompile Include="Shader.cpp" />
@@ -52,6 +52,12 @@
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TexturesController.cpp" />
     <ClCompile Include="TGALoader.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Bin\Data\Shaders\CommonSprite.fs" />
+    <None Include="..\Bin\Data\Shaders\CommonSprite.vs" />
+    <None Include="..\Bin\Data\Shaders\SDFtext.fs" />
+    <None Include="..\Bin\Data\Shaders\SDFtext.vs" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{ED11199B-53BC-4022-BDCB-14A5510DAA2E}</ProjectGuid>

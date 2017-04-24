@@ -33,18 +33,28 @@ ScreenController::~ScreenController()
 
 void ScreenController::StartMainLoop()
 {
-	float lastTime = 0;
-	float delta = 0;
+	double lastTime = 0;
+	double delta = 0;
 	int FPS = 60;
+	double constTimeTick = 1. / FPS;
 	do
 	{
-		lastTime = (float)window->GetTime();
+
 		OnKeyboardEvent();
+		while (window->GetTime() - lastTime < constTimeTick) {}
+		delta = window->GetTime() - lastTime;
+
+		lastTime = window->GetTime();
+
 		UpdateScreen(delta);
+
 		DrawScreen(graphics);
-		window->PollEvents();
-		//while (window->GetTime() - lastTime < 1.f / FPS) {}
-		delta = (float)window->GetTime() - lastTime;
+
+		window->PollEvents();	
+
+		printf("\nFPS: %f", delta);
+		
+
 	} while (window->IsWindowShouldClose());
 }
 

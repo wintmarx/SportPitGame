@@ -3,7 +3,7 @@
 
 
 Burger::Burger(int width, int height, glm::vec3 *position)
-	: Food("..//..//Data//Textures//Food//lq//burgernew.png", width, height, position)
+	: Food("Food//lq//burgernew.png", width, height, position)
 {
 	calories = 509;
 	fats = 29;

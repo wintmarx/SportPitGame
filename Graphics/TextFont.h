@@ -6,7 +6,7 @@
 #endif
 #include "GLHeaders.h"
 #include "SdfTextShader.h"
-#include "CommonSprite.h"
+#include "SDFChar.h"
 #include <string>
 #include "../FilesIOLibrary/FilesIOLibrary.h"
 
@@ -33,7 +33,7 @@ public:
 private:
 	void LoadFont(const char *filePath);
 	Glyph *glyphs;
-	CommonSprite *sprite;
+	SDFChar *sprite;
 	uint32_t glyphsCount;
 	int16_t fontSize;
 	uint16_t lineHeight;

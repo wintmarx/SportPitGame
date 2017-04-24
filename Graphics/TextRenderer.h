@@ -8,9 +8,10 @@ class TextRenderer
 public:
 	TextRenderer();
 	~TextRenderer();
-	void DrawText(std::string text, float x, float y, int size, std::string Font);
-	void DrawText(std::string text, float x, float y, int size, std::string Font, int rectColor);
-	void DrawText(std::string text, float x, float y, int size, std::string Font, int outlineColor, int outlineWidth);
+	void DrawText(std::string text, float x, float y, int size);
+	void DrawText(std::string text, float x, float y, int size, int rectColor);
+	void DrawText(std::string text, float x, float y, int size, int outlineColor, int outlineWidth);
+	void SetFont(char* font);
 private:
 	std::vector<TextFont*> *fontsList;
 };

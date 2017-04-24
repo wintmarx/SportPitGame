@@ -57,6 +57,9 @@
     <ClCompile Include="MenuScreen.cpp">
       <Filter>Файлы исходного кода\Screens</Filter>
     </ClCompile>
+    <ClCompile Include="MaxwellScreen.cpp">
+      <Filter>Файлы исходного кода\Screens</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Data\Shaders\fragment.shader">
@@ -98,6 +101,9 @@
       <Filter>Заголовочные файлы\Screens</Filter>
     </ClInclude>
     <ClInclude Include="MenuScreen.h">
+      <Filter>Заголовочные файлы\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="MaxwellScreen.h">
       <Filter>Заголовочные файлы\Screens</Filter>
     </ClInclude>
   </ItemGroup>

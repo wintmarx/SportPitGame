@@ -17,7 +17,9 @@ public:
 	GAMEENGINE_API Unit(int width, int height, glm::vec4 *color, glm::vec3 *position);
 	GAMEENGINE_API Unit(int width, int height, const char* filePath, glm::vec3 *position);
 	GAMEENGINE_API Unit(const char* filePath, glm::vec3 *position);
-	GAMEENGINE_API bool IsOutField(const int cellsCountX, const int cellsCountY);
+	GAMEENGINE_API int GetWidth();
+	GAMEENGINE_API int GetHeight();
+		
 	GAMEENGINE_API ~Unit();
 	glm::vec3 position;
 	glm::vec3 direction;
@@ -27,7 +29,5 @@ protected:
 	void InitializeUnit(glm::vec3 *position);
 	CommonSprite *sprite;
 	glm::mat4 *model;
-private:
-	GLuint spriteShaderId;
 };
 

@@ -4,7 +4,10 @@
 
 TextRenderer::TextRenderer()
 {
+
 }
+
+
 
 
 TextRenderer::~TextRenderer()

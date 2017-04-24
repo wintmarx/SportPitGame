@@ -1,5 +1,5 @@
 #include "TexturesController.h"
-
+#include "GraphicsResources.h"
 
 
 TexturesController::TexturesController()
@@ -34,16 +34,19 @@ uint32_t TexturesController::AddTexture(const char *filePath)
 	std::vector<uint8_t> *image = new std::vector<uint8_t>();
 	uint32_t width, height;
 	uint32_t error;
+	std::string fullFilePath;
+	fullFilePath.append(GraphicsResources::texturesFolderPath);
+	fullFilePath.append(filePath);
 	int format, internalFormat;
 
 	//std::cout << "\next: " << ext.c_str();
 
 	if (stricmp(ext.c_str(), "png") == 0)
 	{
-		error = lodepng::decode(*image, width, height, filePath);
+		error = lodepng::decode(*image, width, height, fullFilePath.c_str());
 		if (error != 0)
 		{
-			std::cout << "\nerror " << error << ": " << lodepng_error_text(error) << std::endl;
+			std::cout << "\nload error " << error << ": " << lodepng_error_text(error) << ": \"" << fullFilePath.c_str() << "\"";
 			return 0;
 		}
 		format = GL_RGBA;
@@ -76,7 +79,7 @@ uint32_t TexturesController::AddTexture(const char *filePath)
 	glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, width, height, 0, format, GL_UNSIGNED_BYTE, &(*image)[0]);
 
 	textures->push_back(new Texture(image, filePath, textureId, width, height));
-	std::cout << "\nTexture loaded: " << filePath;
+	std::cout << "\nTexture loaded: \"" << fullFilePath.c_str() << "\"";
 
 	delete image;
 	return textureId;

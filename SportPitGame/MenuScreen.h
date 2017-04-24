@@ -14,5 +14,6 @@ public:
 	void OnKeyPress(int buttonID, bool isPressed);
 	void OnKeyRelease(int buttonID);
 	void Initialize();
+	void Collider(Unit **donuts);
 };
 

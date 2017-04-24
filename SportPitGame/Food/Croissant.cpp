@@ -3,7 +3,7 @@
 
 
 Croissant::Croissant(int width, int height, glm::vec3 *position)
-	: Food("..//..//Data//Textures//Food//lq//croissantnew.png", width, height, position)
+	: Food("Food//lq//croissantnew.png", width, height, position)
 {
 	calories = 210;
 	fats = 0;

@@ -5,7 +5,7 @@
 
 
 Player::Player(int width, int height, glm::vec3 *position) 
-	: Unit(width, height, "..//..//Data//Textures//player.png", position)
+	: Unit(width, height, "player.png", position)
 {
 	direction.x = 1;
 	this->calories = 2800;

@@ -1,16 +1,17 @@
 #include "Shader.h"
+#include "GraphicsResources.h"
 
 
 
-Shader::Shader(const char *vFilePath, const char *fFilePath)
+Shader::Shader(const char *vFile, const char *fFile)
 {
 	programId = -1;
 	while(true)
 	{
-		LoadShaders(vFilePath, fFilePath);
+		LoadShaders(vFile, fFile);
 		if (programId >= 0)
 			break;
-		std::cout << "\nTry to fix the shader and ";
+		std::cout << "\nTry to fix the shader: \n" << vFile << "\nand " << fFile << " and ";
 		system("pause");
 	}
 }
@@ -19,23 +20,36 @@ Shader::~Shader()
 {
 }
 
-using namespace std;
-void Shader::LoadShaders(const char* vFilePath, const char* fFilePath)
+bool Shader::IsShaderEqual(const char *vFile, const char *fFile)
 {
+	return !strcmp(vFile, this->vFile.c_str()) && !strcmp(fFile, this->fFile.c_str());
+}
+
+using namespace std;
+void Shader::LoadShaders(const char* vFile, const char* fFile)
+{
+	this->vFile.append(GraphicsResources::shadersFolderPath);
+	this->vFile.append(vFile);
+	this->fFile.append(GraphicsResources::shadersFolderPath);
+	this->fFile.append(fFile);
 	GLuint vId = glCreateShader(GL_VERTEX_SHADER);
 	GLuint fId = glCreateShader(GL_FRAGMENT_SHADER);
 	uint8_t *vCode;
 	uint8_t *fCode;
 	uint32_t sizeVCode;
 	uint32_t sizeFCode;
+	if (!FilesIOLibrary::LoadFile(this->vFile.c_str(), &vCode, &sizeVCode)) return;
+	if (!FilesIOLibrary::LoadFile(this->fFile.c_str(), &fCode, &sizeFCode)) return;
 
-	if (!FilesIOLibrary::LoadFile(vFilePath, &vCode, &sizeVCode)) return;
-	if (!FilesIOLibrary::LoadFile(fFilePath, &fCode, &sizeFCode)) return;
+	this->vFile.clear();
+	this->vFile.append(vFile);
+	this->fFile.clear();
+	this->fFile.append(fFile);
 
 	GLint Result = GL_FALSE;
 	int InfoLogLength;
 
-	printf("\nCompiling shader: %s", vFilePath);
+	printf("\nCompiling shader: %s", vFile);
 	char const *vCodeTmp = (char*)vCode;
 	glShaderSource(vId, 1, &vCodeTmp, (GLint*)&sizeVCode);
 	glCompileShader(vId);
@@ -52,7 +66,7 @@ void Shader::LoadShaders(const char* vFilePath, const char* fFilePath)
 		return;
 	}
 
-	printf("\nCompiling shader: %s", fFilePath);
+	printf("\nCompiling shader: %s", fFile);
 	char const *fCodeTmp = (char*)fCode;
 	glShaderSource(fId, 1, &fCodeTmp, (GLint*)&sizeFCode);
 	glCompileShader(fId);

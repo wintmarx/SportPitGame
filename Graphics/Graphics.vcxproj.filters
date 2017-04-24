@@ -78,9 +78,6 @@
     <ClInclude Include="Line.h">
       <Filter>Заголовочные файлы\Shapes</Filter>
     </ClInclude>
-    <ClInclude Include="Rectangle.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
     <ClInclude Include="SdfTextShader.h">
       <Filter>Заголовочные файлы\Shaders</Filter>
     </ClInclude>
@@ -92,6 +89,9 @@
     </ClInclude>
     <ClInclude Include="CommonSprite.h">
       <Filter>Заголовочные файлы\Shapes\Sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsResources.h">
+      <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -125,9 +125,6 @@
     <ClCompile Include="Line.cpp">
       <Filter>Файлы исходного кода\Shapes</Filter>
     </ClCompile>
-    <ClCompile Include="Rectangle.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
     <ClCompile Include="SdfTextShader.cpp">
       <Filter>Файлы исходного кода\Shaders</Filter>
     </ClCompile>
@@ -140,5 +137,22 @@
     <ClCompile Include="CommonSprite.cpp">
       <Filter>Файлы исходного кода\Shapes\Sprites</Filter>
     </ClCompile>
+    <ClCompile Include="GraphicsResources.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Bin\Data\Shaders\CommonSprite.vs">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="..\Bin\Data\Shaders\SDFtext.fs">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="..\Bin\Data\Shaders\SDFtext.vs">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="..\Bin\Data\Shaders\CommonSprite.fs">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
   </ItemGroup>
 </Project>

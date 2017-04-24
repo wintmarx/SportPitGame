@@ -1,18 +1,16 @@
 #pragma once
 #include "Sprite.h"
-#include "Shader.h"
+#include "SpriteShader.h"
 
 class CommonSprite :
 	public Sprite
 {
 public:
-	GRAPHICS_API CommonSprite(GLuint textureId);
+	GRAPHICS_API CommonSprite();
 	GRAPHICS_API void Draw(glm::mat4 *model, glm::mat4 *projection, glm::mat4 *view);
+	GRAPHICS_API void SetShader(const char *vFilePath, const char *fFilePath);
+
 private:
-	Shader *shader;
-	GLint mvpShLoc;
-	GLint texSamplerShLoc;
-	GLint matDiffColorShLoc;
-	GLint isColoredShLoc;
+	static std::vector<SpriteShader*> shaders;
 };
 
