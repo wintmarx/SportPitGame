@@ -34,7 +34,7 @@ ScreenController::~ScreenController()
 void ScreenController::StartMainLoop()
 {
 	double lastTime = 0;
-	double delta = 0;
+	float delta = 0;
 	int FPS = 60;
 	double constTimeTick = 1. / FPS;
 	do
@@ -52,7 +52,7 @@ void ScreenController::StartMainLoop()
 
 		window->PollEvents();	
 
-		printf("\nFPS: %f", delta);
+		//printf("\nFPS: %f", delta);
 		
 
 	} while (window->IsWindowShouldClose());

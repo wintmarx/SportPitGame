@@ -90,6 +90,14 @@ void MaxwellScreen::Initialize()
 	}
 	int count = atoi(&buff[0]);
 
+	buff.clear();
+	std::getline(simFile, line);
+	for (int i = 2; i < line.size(); i++)
+	{
+		buff.push_back(line[i]);
+	}
+	int timeTicks = atoi(&buff[0]);
+
 	intervalsCount = 40;
 
 	velocitiesHistogramValues = (double*)malloc(sizeof(double) * intervalsCount);
@@ -128,6 +136,8 @@ void MaxwellScreen::Initialize()
 				timeSteps++;
 
 			j++;
+			if (j % 10000 == 0)
+				printf("\nMaxwell Loaded: %i /%i", j, timeTicks * count);
 		}
 	}
 
