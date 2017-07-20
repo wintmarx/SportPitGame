@@ -22,5 +22,4 @@ void Food::Update(float deltaTime)
 {
 	glm::vec3 deltaPos = direction * velocity * deltaTime;
 	position += deltaPos;
-	*model = glm::translate(position);
 }

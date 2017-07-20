@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-Sprite::Sprite()
+Sprite::Sprite(float x, float y)
 {
 	color = glm::vec4(-1);
 	textureId = 0;
@@ -44,6 +44,10 @@ Sprite::Sprite()
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 	glBindVertexArray(0);
+
+	model = glm::scale(glm::vec3(-1, 1, 1));
+	SetPosition(x, y);
+
 	delete indices;
 }
 
@@ -148,11 +152,24 @@ void Sprite::SetTextureShape(float uvX, float uvY, int width, int height)
 	delete uvs;
 }
 
+void Sprite::SetPosition(float x, float y)
+{
+	model[3].x = x;
+	model[3].y = y;
+}
+
+void Sprite::SetPosition(glm::vec3 *position)
+{
+	model[3].x = position->x;
+	model[3].y = position->y;
+}
+
 void Sprite::SetTexture(const char* filePath)
 {
 	textureId = texturesController->AddTexture(filePath);
 	width = texturesController->GetTextureWidth(textureId);
 	height = texturesController->GetTextureHeight(textureId);
+	SetSize(width, height);
 }
 
 void Sprite::SetActiveShader(int localShaderId)

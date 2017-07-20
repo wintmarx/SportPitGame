@@ -27,8 +27,9 @@
     <ClCompile Include="Food\Food.cpp" />
     <ClCompile Include="GameScreen.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainScreen.cpp" />
     <ClCompile Include="MaxwellScreen.cpp" />
-    <ClCompile Include="MenuScreen.cpp" />
+    <ClCompile Include="GasSimulationScreen.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -45,8 +46,9 @@
     <ClInclude Include="Food\Donut.h" />
     <ClInclude Include="Food\Food.h" />
     <ClInclude Include="GameScreen.h" />
+    <ClInclude Include="MainScreen.h" />
     <ClInclude Include="MaxwellScreen.h" />
-    <ClInclude Include="MenuScreen.h" />
+    <ClInclude Include="GasSimulationScreen.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -29,7 +29,6 @@ void Player::Update(float deltaTime)
 	this->carbohydrates -= 12;
 	this->proteins -= 7;
 	this->fats -= 2;
-	*model = glm::translate(position);
 }
 
 void Player::EatFood(int calories, int carbohydrates, int proteins, int fats)

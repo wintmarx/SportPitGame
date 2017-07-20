@@ -11,7 +11,7 @@
 #include <vector>
 #include <string>
 #include <ctime>
-#include "MenuScreen.h"
+#include "GasSimulationScreen.h"
 
 class GameScreen :
 	public Screen

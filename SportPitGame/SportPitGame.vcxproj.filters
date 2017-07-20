@@ -54,10 +54,13 @@
     <ClCompile Include="GameScreen.cpp">
       <Filter>Файлы исходного кода\Screens</Filter>
     </ClCompile>
-    <ClCompile Include="MenuScreen.cpp">
+    <ClCompile Include="MaxwellScreen.cpp">
       <Filter>Файлы исходного кода\Screens</Filter>
     </ClCompile>
-    <ClCompile Include="MaxwellScreen.cpp">
+    <ClCompile Include="GasSimulationScreen.cpp">
+      <Filter>Файлы исходного кода\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="MainScreen.cpp">
       <Filter>Файлы исходного кода\Screens</Filter>
     </ClCompile>
   </ItemGroup>
@@ -100,10 +103,13 @@
     <ClInclude Include="GameScreen.h">
       <Filter>Заголовочные файлы\Screens</Filter>
     </ClInclude>
-    <ClInclude Include="MenuScreen.h">
+    <ClInclude Include="MaxwellScreen.h">
       <Filter>Заголовочные файлы\Screens</Filter>
     </ClInclude>
-    <ClInclude Include="MaxwellScreen.h">
+    <ClInclude Include="GasSimulationScreen.h">
+      <Filter>Заголовочные файлы\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="MainScreen.h">
       <Filter>Заголовочные файлы\Screens</Filter>
     </ClInclude>
   </ItemGroup>

@@ -24,17 +24,18 @@ void TextFont::DrawText(std::string text, int size, glm::vec4 *color, float x, f
 				model = glm::translate(model, glm::vec3(0, -fontSize, 0));
 				break;
 			}
+
 			if (glyph == glyphs[j].id)
 			{
 				model = glm::translate(model, glm::vec3(glyphs[j].width/2 , -glyphs[j].height/2, 0));
 				model = glm::translate(model, glm::vec3(glyphs[j].xOffset, -glyphs[j].yOffset, 0));
-				sprite->SetTextureShape(glyphs[j].x, glyphs[j].y, glyphs[j].width, glyphs[j].height);
 
+				sprite->SetTextureShape(glyphs[j].x, glyphs[j].y, glyphs[j].width, glyphs[j].height);
 				sprite->SetColor(color);
-				sprite->Draw(&model, projection, &glm::mat4(1));
+				sprite->Draw(projection, &glm::mat4(1));
 
 				model = glm::translate(model, glm::vec3(-glyphs[j].xOffset, glyphs[j].yOffset, 0));
-				model = glm::translate(model, glm::vec3(-glyphs[j].width / 2, glyphs[j].height/2, 0));
+				model = glm::translate(model, glm::vec3(-glyphs[j].width/2, glyphs[j].height/2, 0));
 				model = glm::translate(model, glm::vec3(glyphs[j].xAdvance, 0, 0));
 				break;
 			}

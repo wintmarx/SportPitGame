@@ -7,7 +7,7 @@ class SDFChar :
 {
 public:
 	GRAPHICS_API SDFChar();
-	GRAPHICS_API void Draw(glm::mat4 *model, glm::mat4 *projection, glm::mat4 *view);
+	GRAPHICS_API void Draw(glm::mat4 *projection, glm::mat4 *view);
 	GRAPHICS_API void SetShader(const char *vFilePath, const char *fFilePath);
 
 private:

@@ -2,7 +2,8 @@
 
 
 
-CommonSprite::CommonSprite() : Sprite()
+CommonSprite::CommonSprite(float x, float y) 
+	: Sprite(x, y)
 {
 	currentShader = -1;
 }
@@ -26,7 +27,7 @@ void CommonSprite::SetShader(const char *vFilePath, const char *fFilePath)
 	}
 }
 
-void CommonSprite::Draw(glm::mat4 *model, glm::mat4 *projection, glm::mat4 *view)
+void CommonSprite::Draw(glm::mat4 *projection, glm::mat4 *view)
 {
 	if (shaders.empty())
 	{
@@ -52,7 +53,7 @@ void CommonSprite::Draw(glm::mat4 *model, glm::mat4 *projection, glm::mat4 *view
 		//std::cout << std::endl << shaders[currentShader]->texSamplerShLoc;
 	}
 
-	glUniformMatrix4fv(shaders[currentShader]->mvpShLoc, 1, GL_FALSE, &((*projection) * (*view) * (*model))[0][0]);
+	glUniformMatrix4fv(shaders[currentShader]->mvpShLoc, 1, GL_FALSE, &((*projection) * (*view) * model)[0][0]);
 	//std::cout << std::endl << shaders[currentShader]->mvpShLoc;
 
 	glUniform4fv(shaders[currentShader]->matDiffColorShLoc, 1, &(color)[0]);

@@ -1,5 +1,5 @@
 #include "MaxwellScreen.h"
-#include "MenuScreen.h"
+#include "GasSimulationScreen.h"
 #include "../Graphics/TextFont.h"
 #include <cmath>
 #include <ctime>

@@ -28,6 +28,5 @@ public:
 protected:
 	void InitializeUnit(glm::vec3 *position);
 	CommonSprite *sprite;
-	glm::mat4 *model;
 };
 
