@@ -104,7 +104,7 @@ void TextFont::LoadFont(const char *filePath)
 
 	folderPath += textureFileName;
 
-	sprite = new SDFChar();
+	sprite = new SDFChar('a', new glm::vec2(0.5, 4));
 
 	glyphsCount = charsBlockLength / 20;
 

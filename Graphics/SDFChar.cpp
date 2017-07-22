@@ -2,13 +2,16 @@
 
 
 
-SDFChar::SDFChar() 
+SDFChar::SDFChar(wchar_t symbol, glm::vec2 *drawParams)
 	 : Sprite(0,0)
 {
 	currentShader = -1;
+	this->symbol = symbol;
+	params = glm::vec4(*drawParams, 0, 0);
+	borderColor = glm::vec4(0);
 }
 
-std::vector<SpriteShader*> SDFChar::shaders;
+std::vector<SdfTextShader*> SDFChar::shaders;
 void SDFChar::SetShader(const char *vFilePath, const char *fFilePath)
 {
 	bool isMatch = false;
@@ -22,7 +25,7 @@ void SDFChar::SetShader(const char *vFilePath, const char *fFilePath)
 	}
 	if (!isMatch)
 	{
-		shaders.push_back(new SpriteShader(vFilePath, fFilePath));
+		shaders.push_back(new SdfTextShader(vFilePath, fFilePath));
 		currentShader = shaders.size() - 1;
 	}
 }
@@ -41,33 +44,20 @@ void SDFChar::Draw(glm::mat4 *projection, glm::mat4 *view)
 		return;
 	}
 
-	//std::cout << std::endl << "ShaderInfo: " << currentShader;
 	glUseProgram(shaders[currentShader]->programId);
-	//std::cout << std::endl << shaders[currentShader]->programId;
 
 	if (textureId > 0)
 	{
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, textureId);
 		glUniform1i(shaders[currentShader]->texSamplerShLoc, 0);
-		//std::cout << std::endl << shaders[currentShader]->texSamplerShLoc;
 	}
 
 	glUniformMatrix4fv(shaders[currentShader]->mvpShLoc, 1, GL_FALSE, &((*projection) * (*view) * model)[0][0]);
-	//std::cout << std::endl << shaders[currentShader]->mvpShLoc;
 
-	glUniform4fv(shaders[currentShader]->matDiffColorShLoc, 1, &(color)[0]);
-	//std::cout << std::endl << shaders[currentShader]->matDiffColorShLoc;
-
-	if (textureId > 0 && color.x >= 0)
-	{
-		glUniform1i(shaders[currentShader]->isColoredShLoc, 1);
-	}
-	else
-	{
-		glUniform1i(shaders[currentShader]->isColoredShLoc, 0);
-	}
-	//std::cout << std::endl << shaders[currentShader]->isColoredShLoc;
+	glUniform4fv(shaders[currentShader]->colorShLoc, 1, &(color)[0]);
+	glUniform4fv(shaders[currentShader]->borderColorShLoc, 1, &(borderColor)[0]);
+	glUniform4fv(shaders[currentShader]->paramsShLoc, 1, &(params)[0]);
 
 	glBindVertexArray(vertexArrayObject);
 
@@ -83,4 +73,35 @@ void SDFChar::Draw(glm::mat4 *projection, glm::mat4 *view)
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);
 	glBindVertexArray(0);
+}
+
+void SDFChar::SetBorder(glm::vec4 *borderColor, glm::vec2 *borderDrawParams)
+{
+	this->borderColor = *borderColor;
+	params.z = borderDrawParams->x;
+	params.w = borderDrawParams->y;
+}
+
+void SDFChar::DeleteBorder()
+{
+	params.z = 0;
+	params.w = 0;
+	borderColor.a = 0;
+}
+
+void SDFChar::SetBorderParams(glm::vec2 *params)
+{
+	this->params.z = params->x;
+	this->params.w = params->y;
+}
+
+void SDFChar::SetCharParams(glm::vec2 *params)
+{
+	this->params.x = params->x;
+	this->params.y = params->y;
+}
+
+void SDFChar::SetParams(glm::vec4 *params)
+{
+	this->params = *params;
 }

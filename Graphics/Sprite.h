@@ -20,6 +20,7 @@ public:
 	GRAPHICS_API void SetTextureShape(float uvX, float uvY, int width, int height);
 	GRAPHICS_API void SetColor(glm::vec4 *color);
 	GRAPHICS_API void SetTexture(const char* filePath);
+	GRAPHICS_API void Scale(glm::vec3 *scale);
 	GRAPHICS_API void SetPosition(float x, float y);
 	GRAPHICS_API void SetPosition(glm::vec3 *position);
 	GRAPHICS_API virtual void SetShader(const char *vFilePath, const char *fFilePath) = 0;

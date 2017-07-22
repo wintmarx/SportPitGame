@@ -152,6 +152,11 @@ void Sprite::SetTextureShape(float uvX, float uvY, int width, int height)
 	delete uvs;
 }
 
+void Sprite::Scale(glm::vec3 *scale)
+{
+	model = glm::scale(model, *scale);
+}
+
 void Sprite::SetPosition(float x, float y)
 {
 	model[3].x = x;

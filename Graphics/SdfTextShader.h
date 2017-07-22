@@ -8,7 +8,8 @@ public:
 	SdfTextShader(const char *vFilePath, const char *fFilePath);
 	GLint mvpShLoc;
 	GLint texSamplerShLoc;
-	GLint colorShLoc;
 	GLint paramsShLoc;
+	GLint colorShLoc;
+	GLint borderColorShLoc;
 };
 
