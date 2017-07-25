@@ -5,40 +5,35 @@
 #include <fstream>
 
 
-void TextFont::DrawText(std::string text, int size, glm::vec4 *color, float x, float y, glm::mat4 *projection, SdfTextShader *sdfTextShader)
+void TextFont::DrawText(std::wstring text, int size, glm::vec4 *color, float x, float y, glm::mat4 *projection, SdfTextShader *sdfTextShader)
 {
 	float sizeCoeff = size * 1.f / fontSize;
 	model = glm::translate(glm::vec3(x, y, 0));
 	model = glm::scale(model, glm::vec3(sizeCoeff));
-	uint16_t glyph;
-
+	uint32_t j = 0;
 	for (uint32_t i = 0; i < text.size(); i++)
 	{
-		for (int j = 0; j < glyphsCount; j++)
+
+		if (text[i] == L'\n')
 		{
-			glyph = (text[i] < 0 ? 256 : 0) + text[i];
+			model[3].x = x;
+			model = glm::translate(model, glm::vec3(0, -fontSize, 0));
+			break;
+		}
 
-			if (glyph == '\n') 
-			{
-				model[3].x = x;
-				model = glm::translate(model, glm::vec3(0, -fontSize, 0));
-				break;
-			}
+		if (text[i] == glyphs[j].id)
+		{
+			model = glm::translate(model, glm::vec3(glyphs[j].width / 2, -glyphs[j].height / 2, 0));
+			model = glm::translate(model, glm::vec3(glyphs[j].xOffset, -glyphs[j].yOffset, 0));
 
-			if (glyph == glyphs[j].id)
-			{
-				model = glm::translate(model, glm::vec3(glyphs[j].width/2 , -glyphs[j].height/2, 0));
-				model = glm::translate(model, glm::vec3(glyphs[j].xOffset, -glyphs[j].yOffset, 0));
+			sprite->SetTextureShape(glyphs[j].x, glyphs[j].y, glyphs[j].width, glyphs[j].height);
+			sprite->SetColor(color);
+			sprite->Draw(projection, &glm::mat4(1));
 
-				sprite->SetTextureShape(glyphs[j].x, glyphs[j].y, glyphs[j].width, glyphs[j].height);
-				sprite->SetColor(color);
-				sprite->Draw(projection, &glm::mat4(1));
-
-				model = glm::translate(model, glm::vec3(-glyphs[j].xOffset, glyphs[j].yOffset, 0));
-				model = glm::translate(model, glm::vec3(-glyphs[j].width/2, glyphs[j].height/2, 0));
-				model = glm::translate(model, glm::vec3(glyphs[j].xAdvance, 0, 0));
-				break;
-			}
+			model = glm::translate(model, glm::vec3(-glyphs[j].xOffset, glyphs[j].yOffset, 0));
+			model = glm::translate(model, glm::vec3(-glyphs[j].width / 2, glyphs[j].height / 2, 0));
+			model = glm::translate(model, glm::vec3(glyphs[j].xAdvance, 0, 0));
+			break;
 		}
 	}
 }

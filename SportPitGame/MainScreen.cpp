@@ -116,6 +116,9 @@ void MainScreen::OnKeyPress(int buttonID, bool isPressed)
 			fontScale += glm::vec3(1);
 			sdfChar->Scale(&fontScale);
 			printf("\n%f\t| %f\t| %f\t| %f", params.x, params.y, params.z, params.w);
+			wchar_t t = L'À';
+			uint8_t *bytes = (uint8_t*)&t;
+			printf("\n%d", t);
 		}
 		break;
 	case GLFW_KEY_MINUS:
