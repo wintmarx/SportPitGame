@@ -9,6 +9,7 @@ using namespace glm;
 SDFChar *sdfChar;
 glm::vec4 params;
 glm::vec3 fontScale;
+TextFont *font;
 MainScreen::MainScreen(int width, int height) : Screen(width, height)
 {
 	glClearColor(.1f, .67f, 1.f, 1.f);
@@ -22,6 +23,7 @@ MainScreen::MainScreen(int width, int height) : Screen(width, height)
 	sdfChar->SetColor(new vec4(1, 1, 0, 1));
 	sdfChar->SetBorder(new vec4(1, 0, 0, 1), new glm::vec2(0.3, 20));
 	sdfChar->SetShader("SDFText.vs", "SDFText.fs");
+	font = new TextFont("..//Data//Fonts//arial//arial.fnt");
 }
 
 
@@ -113,18 +115,16 @@ void MainScreen::OnKeyPress(int buttonID, bool isPressed)
 	case GLFW_KEY_EQUAL:
 		if (!isPressed)
 		{
-			fontScale += glm::vec3(1);
+			fontScale = glm::vec3(2);
 			sdfChar->Scale(&fontScale);
 			printf("\n%f\t| %f\t| %f\t| %f", params.x, params.y, params.z, params.w);
-			wchar_t t = L'À';
-			uint8_t *bytes = (uint8_t*)&t;
-			printf("\n%d", t);
+			
 		}
 		break;
 	case GLFW_KEY_MINUS:
 		if (!isPressed)
 		{
-			fontScale -= glm::vec3(1);
+			fontScale = glm::vec3(0.5);
 			sdfChar->Scale(&fontScale);
 			printf("\n%f\t| %f\t| %f\t| %f", params.x, params.y, params.z, params.w);
 		}

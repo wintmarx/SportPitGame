@@ -5,7 +5,7 @@
 #include <fstream>
 
 
-void TextFont::DrawText(std::wstring text, int size, glm::vec4 *color, float x, float y, glm::mat4 *projection, SdfTextShader *sdfTextShader)
+void TextFont::DrawText(std::wstring text, int size, glm::vec4 *color, float x, float y, glm::mat4 *projection)
 {
 	float sizeCoeff = size * 1.f / fontSize;
 	model = glm::translate(glm::vec3(x, y, 0));
@@ -18,23 +18,19 @@ void TextFont::DrawText(std::wstring text, int size, glm::vec4 *color, float x, 
 		{
 			model[3].x = x;
 			model = glm::translate(model, glm::vec3(0, -fontSize, 0));
-			break;
+			continue;
 		}
+		j = text[i] > 1000 ? (text[i] - 914 ): (text[i] - 1);
+		model = glm::translate(model, glm::vec3(glyphs[j].width / 2, -glyphs[j].height / 2, 0));
+		model = glm::translate(model, glm::vec3(glyphs[j].xOffset, -glyphs[j].yOffset, 0));
 
-		if (text[i] == glyphs[j].id)
-		{
-			model = glm::translate(model, glm::vec3(glyphs[j].width / 2, -glyphs[j].height / 2, 0));
-			model = glm::translate(model, glm::vec3(glyphs[j].xOffset, -glyphs[j].yOffset, 0));
+		sprite->SetTextureShape(glyphs[j].x, glyphs[j].y, glyphs[j].width, glyphs[j].height);
+		sprite->SetColor(color);
+		sprite->Draw(projection, &glm::mat4(1));
 
-			sprite->SetTextureShape(glyphs[j].x, glyphs[j].y, glyphs[j].width, glyphs[j].height);
-			sprite->SetColor(color);
-			sprite->Draw(projection, &glm::mat4(1));
-
-			model = glm::translate(model, glm::vec3(-glyphs[j].xOffset, glyphs[j].yOffset, 0));
-			model = glm::translate(model, glm::vec3(-glyphs[j].width / 2, glyphs[j].height / 2, 0));
-			model = glm::translate(model, glm::vec3(glyphs[j].xAdvance, 0, 0));
-			break;
-		}
+		model = glm::translate(model, glm::vec3(-glyphs[j].xOffset, glyphs[j].yOffset, 0));
+		model = glm::translate(model, glm::vec3(-glyphs[j].width / 2, glyphs[j].height / 2, 0));
+		model = glm::translate(model, glm::vec3(glyphs[j].xAdvance, 0, 0));
 	}
 }
 
@@ -100,6 +96,7 @@ void TextFont::LoadFont(const char *filePath)
 	folderPath += textureFileName;
 
 	sprite = new SDFChar('a', new glm::vec2(0.5, 4));
+	sprite->SetShader("SDFText.vs", "SDFText.fs");
 
 	glyphsCount = charsBlockLength / 20;
 
@@ -108,5 +105,7 @@ void TextFont::LoadFont(const char *filePath)
 	{
 		glyphs[i] = *(Glyph*)&buffer[headerSize + 5 + infoBlockLength + 5 + commonBlockLength + 5 + pagesBlockLength + 4 + i * 20];
 	}
+
+	
 	delete[] buffer;
 }
