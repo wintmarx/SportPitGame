@@ -29,7 +29,9 @@ public:
 	GRAPHICS_API void DrawText(std::wstring text, int size, glm::vec4 *color, float x, float y, glm::mat4 *projection);
 	GRAPHICS_API TextFont(const char* filePath);
 	GRAPHICS_API ~TextFont();
+	GRAPHICS_API void AddParamValue(glm::vec4 *delta);
 	uint8_t *fontName;
+	GRAPHICS_API void ShowInfo();
 private:
 	void LoadFont(const char *filePath);
 	Glyph *glyphs;
@@ -38,7 +40,7 @@ private:
 	int16_t fontSize;
 	uint16_t lineHeight;
 	uint16_t base;
-	glm::mat4 model;
+	glm::vec3 scale;
 	
 };
 

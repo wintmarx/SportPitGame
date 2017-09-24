@@ -18,7 +18,7 @@ TexturesController::~TexturesController()
 }
 
 
-uint32_t TexturesController::AddTexture(const char *filePath)
+uint32_t TexturesController::AddTexture(const char *filePath, bool isStdFolder)
 {
 	for (uint32_t i = 0; i < textures->size(); i++)
 		if ((*textures)[i]->IsEqualFilePath(filePath)) 
@@ -35,7 +35,8 @@ uint32_t TexturesController::AddTexture(const char *filePath)
 	uint32_t width, height;
 	uint32_t error;
 	std::string fullFilePath;
-	fullFilePath.append(GraphicsResources::texturesFolderPath);
+	if(isStdFolder)
+		fullFilePath.append(GraphicsResources::texturesFolderPath);
 	fullFilePath.append(filePath);
 	int format, internalFormat;
 

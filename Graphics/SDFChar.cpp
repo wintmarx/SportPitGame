@@ -2,11 +2,10 @@
 
 
 
-SDFChar::SDFChar(wchar_t symbol, glm::vec2 *drawParams)
+SDFChar::SDFChar(glm::vec2 *drawParams)
 	 : Sprite(0,0)
 {
 	currentShader = -1;
-	this->symbol = symbol;
 	params = glm::vec4(*drawParams, 0, 0);
 	borderColor = glm::vec4(0);
 }
@@ -104,4 +103,10 @@ void SDFChar::SetCharParams(glm::vec2 *params)
 void SDFChar::SetParams(glm::vec4 *params)
 {
 	this->params = *params;
+}
+
+void SDFChar::AddParams(glm::vec4 *delta)
+{
+	this->params += *delta;
+	printf("\n%f\t| %f\t| %f\t| %f", params.x, params.y, params.z, params.w);
 }

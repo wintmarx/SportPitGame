@@ -134,17 +134,17 @@ void Sprite::SetTextureShape(float uvX, float uvY, int width, int height)
 	SetSize(width, height);
 
 	float *uvs = (float*)malloc(sizeof(float) * vertexCount * 2);
-	uvs[0] = uvX / this->width;
-	uvs[1] = uvY / this->height;
+	uvs[4] = uvX / this->texturesController->GetTextureWidth(this->textureId);
+	uvs[5] = uvY / this->texturesController->GetTextureHeight(this->textureId);
 
-	uvs[2] = uvX / this->width;
-	uvs[3] = uvY / this->height + height * 1.f / this->height;
+	uvs[6] = uvX / this->texturesController->GetTextureWidth(this->textureId);
+	uvs[7] = uvY / this->texturesController->GetTextureHeight(this->textureId) + height * 1.f / this->texturesController->GetTextureHeight(this->textureId);
 
-	uvs[4] = uvX / this->width + width * 1.f / this->width;
-	uvs[5] = uvY / this->height + height * 1.f / this->height;
+	uvs[0] = uvX / this->texturesController->GetTextureWidth(this->textureId) + width * 1.f / this->texturesController->GetTextureWidth(this->textureId);
+	uvs[1] = uvY / this->texturesController->GetTextureHeight(this->textureId) + height * 1.f / this->texturesController->GetTextureHeight(this->textureId);
 
-	uvs[6] = uvX / this->width + width *1.f / this->width;
-	uvs[7] = uvY / this->height;
+	uvs[2] = uvX / this->texturesController->GetTextureWidth(this->textureId) + width *1.f / this->texturesController->GetTextureWidth(this->textureId);
+	uvs[3] = uvY / this->texturesController->GetTextureHeight(this->textureId);
 
 	glBindBuffer(GL_ARRAY_BUFFER, textureBuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * vertexCount * 2, uvs, GL_STATIC_DRAW);
@@ -152,9 +152,14 @@ void Sprite::SetTextureShape(float uvX, float uvY, int width, int height)
 	delete uvs;
 }
 
-void Sprite::Scale(glm::vec3 *scale)
+void Sprite::Scale(glm::vec3 *delta)
 {
-	model = glm::scale(model, *scale);
+	model = glm::scale(model, *delta);
+}
+
+void Sprite::SetScale(glm::vec3 *scale)
+{
+	model = glm::scale(*scale);
 }
 
 void Sprite::SetPosition(float x, float y)
@@ -169,9 +174,21 @@ void Sprite::SetPosition(glm::vec3 *position)
 	model[3].y = position->y;
 }
 
-void Sprite::SetTexture(const char* filePath)
+void Sprite::Translate(float dx, float dy)
 {
-	textureId = texturesController->AddTexture(filePath);
+	model[3].x += dx;
+	model[3].y += dy;
+}
+
+void Sprite::Translate(glm::vec3 *dPos)
+{
+	model[3].x += dPos->x;
+	model[3].y += dPos->y;
+}
+
+void Sprite::SetTexture(const char* filePath, bool isStdFolder)
+{
+	textureId = texturesController->AddTexture(filePath, isStdFolder);
 	width = texturesController->GetTextureWidth(textureId);
 	height = texturesController->GetTextureHeight(textureId);
 	SetSize(width, height);

@@ -21,6 +21,7 @@ Line::~Line()
 {
 	glDeleteBuffers(1, &vertexBuffer);
 	glDeleteVertexArrays(1, &vertexArrayObject);
+	delete shader;
 }
 
 void Line::Draw(glm::mat4 *projection)

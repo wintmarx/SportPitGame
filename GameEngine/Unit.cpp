@@ -15,7 +15,7 @@ Unit::Unit(int width, int height, glm::vec4 *color, glm::vec3 *position)
 Unit::Unit(int width, int height, const char *filePath, glm::vec3 *position)
 {
 	sprite = new CommonSprite(position->x, position->y);
-	sprite->SetTexture(filePath);
+	sprite->SetTexture(filePath, true);
 	sprite->SetSize(width, height);
 	sprite->SetShader("CommonSprite.vs", "CommonSprite.fs");
 	InitializeUnit(position);
@@ -24,7 +24,7 @@ Unit::Unit(int width, int height, const char *filePath, glm::vec3 *position)
 Unit::Unit(const char *filePath, glm::vec3 *position)
 {
 	sprite = new CommonSprite(position->x, position->y);
-	sprite->SetTexture(filePath);
+	sprite->SetTexture(filePath, true);
 	sprite->SetShader("CommonSprite.vs", "CommonSprite.fs");
 	InitializeUnit(position);
 }
