@@ -10,6 +10,7 @@ public:
 	double GetTime();
 	bool IsWindowShouldClose();
 	void PollEvents();
+	GLFWwindow* GetGLFW();
 	bool IsKeyPressed(int keyCode);
 	~Window();
 private:

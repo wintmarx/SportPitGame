@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="ScreenController.h" />
     <ClInclude Include="TextBlock.h" />
@@ -26,6 +27,7 @@
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="ScreenController.cpp" />
     <ClCompile Include="TextBlock.cpp" />

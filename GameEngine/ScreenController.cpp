@@ -12,12 +12,16 @@ ScreenController::ScreenController(int screenWidth, int screenHeight, std::strin
 		system("pause");
 		exit(1);
 	}
+
+	//glfwSetMouseButtonCallback(window->GetGLFW(), &OnMouseEvent);
+
 	this->screenHeight = screenHeight;
 	this->screenWidth = screenWidth;
 	this->title = *title;
 	graphics = new Graphics();
 	graphics->SetScreenSize(screenWidth, screenHeight);
 }
+
 
 
 ScreenController::~ScreenController()
@@ -57,6 +61,11 @@ void ScreenController::StartMainLoop()
 
 	} while (window->IsWindowShouldClose());
 }
+
+//void OnMouseEvent(GLFWwindow *window, int button, int action, int mods)
+//{
+//	printf("mouseCallBack");
+//}
 
 void ScreenController::OnKeyboardEvent()
 {

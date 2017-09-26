@@ -38,6 +38,7 @@ Window* Window::Create(int width, int height, std::string *title)
 
 	glfwSetInputMode(glfwWindow, GLFW_STICKY_KEYS, GL_TRUE);
 
+
 	return new Window(glfwWindow, width, height, title);
 }
 
@@ -57,6 +58,11 @@ double Window::GetTime()
 bool Window::IsWindowShouldClose()
 {
 	return glfwWindowShouldClose(glfwWindow) == 0;
+}
+
+GLFWwindow* Window::GetGLFW()
+{
+	return glfwWindow;
 }
 
 void Window::PollEvents()
