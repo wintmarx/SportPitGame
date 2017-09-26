@@ -19,7 +19,7 @@ public:
 	GRAPHICS_API void SetSize(int width, int height);
 	GRAPHICS_API void SetTextureShape(float uvX, float uvY, int width, int height);
 	GRAPHICS_API void SetColor(glm::vec4 *color);
-	GRAPHICS_API void SetTexture(const char* filePath, bool isStdFolder);
+	GRAPHICS_API void SetTexture(const char* filePath, bool isStdFolder = true);
 	GRAPHICS_API void Scale(glm::vec3 *delta);
 	GRAPHICS_API void SetScale(glm::vec3 *scale);
 	GRAPHICS_API void SetPosition(float x, float y);

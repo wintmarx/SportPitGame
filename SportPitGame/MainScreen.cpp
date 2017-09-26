@@ -2,19 +2,41 @@
 #include "..\Graphics\TextFont.h"
 #include "..\Graphics\CommonSprite.h"
 #include "Food\Burger.h"
-#include "..\GameEngine\Unit.h"
+
 
 
 using namespace glm;
 int textSize;
 TextFont *font;
+CommonSprite *grass;
+float **grassArr;
+int grassCountX;
+int grassCountY;
+
+void TestFunc()
+{
+	printf("\nTEST CALLBACK");
+}
+
+
 MainScreen::MainScreen(int width, int height) : Screen(width, height)
 {
 	glClearColor(.1f, .67f, 1.f, 1.f);
 	projection = ortho(0.0f, width * 1.0f, 0.0f, height*1.0f, 1.0f, -1.0f);
 	view = mat4(1);
 	textSize = 36;
-	font = new TextFont("..\\Data\\Fonts\\Calibri\\calibri.fnt");
+	font = new TextFont("..\\Data\\Fonts\\arial\\arial.fnt");
+	btn = new Button(400, 400, 10, 100);
+	btn->SetCallback(&TestFunc);
+	btn->Press();
+	btn->Release();
+	grass = new CommonSprite(0, 0);
+	grass->SetTexture("bg\\grass.png");
+	grass->SetShader("CommonSprite.vs", "CommonSprite.fs");
+	grassCountX = width / grass->width + 1;
+	grassCountY = height / grass->height + 1;
+	//grassArr = new float[grassCountY * grassCountX];
+
 }
 
 
@@ -30,8 +52,17 @@ void MainScreen::Update(float delta)
 void MainScreen::Render(Graphics *graphics)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	graphics->DrawLine(100, 600, 0, 0, &vec4(1, 1, 0, 1), &projection);
-	font->DrawText(L"йюръ кносу ю ъ охьс рейяр! Б 3:06 МНВХ", textSize, &vec4(1, 0, 0, 0), 100, 600, &projection);
+	for (int i = 0; i < grassCountY; i++)
+	{
+		for (int j = 0; j < grassCountX; j++)
+		{
+			grass->SetPosition(j * grass->width + grass->width / 2, i * grass->height + grass->height / 2);
+			grass->Draw(&projection, &view);
+		}
+	}
+	graphics->DrawLine(400, 400, 0, 0, &vec4(1, 1, 0, 1), &projection);
+	font->DrawText(L"JdgTПНП", textSize, &vec4(0, 0, 0, 1), 0, 600, &projection);
+	btn->Draw(&projection, &view);
 	//std::cout << glGetError() << std::endl;
 }
 
@@ -99,12 +130,23 @@ void MainScreen::OnKeyPress(int buttonID, bool isPressed)
 			textSize--;
 		//}
 		break;
+	case GLFW_KEY_B:
+		if (!isPressed)
+		{
+			btn->Press();
+		}
+		break;
 	}
 }
 
 void MainScreen::OnKeyRelease(int buttonID)
 {
-
+	switch (buttonID)
+	{
+	case GLFW_KEY_B:
+			btn->Release();
+		break;
+	}
 }
 
 void MainScreen::Initialize()

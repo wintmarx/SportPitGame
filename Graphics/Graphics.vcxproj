@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommonSprite.h" />
+    <ClInclude Include="FontController.h" />
     <ClInclude Include="GLHeaders.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="GraphicsResources.h" />
@@ -38,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CommonSprite.cpp" />
+    <ClCompile Include="FontController.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="GraphicsResources.cpp" />
     <ClCompile Include="Line.cpp" />

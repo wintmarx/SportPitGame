@@ -5,6 +5,7 @@
 TexturesController::TexturesController()
 {
 	textures = new std::vector<Texture*>();
+	AddTexture("errorTexture.png", true);
 }
 
 
@@ -48,7 +49,7 @@ uint32_t TexturesController::AddTexture(const char *filePath, bool isStdFolder)
 		if (error != 0)
 		{
 			std::cout << "\nload error " << error << ": " << lodepng_error_text(error) << ": \"" << fullFilePath.c_str() << "\"";
-			return 0;
+			return 1;
 		}
 		format = GL_RGBA;
 		internalFormat = GL_RGBA;
@@ -57,8 +58,14 @@ uint32_t TexturesController::AddTexture(const char *filePath, bool isStdFolder)
 	{
 		error = LoadTGA(image, (int*)&width, (int*)&height, &internalFormat, &format, filePath);
 		if (error < 0)
-			return 0;
+			return 1;
 	}
+	else
+	{
+		printf("\nLoad error: \"%s\". Unsupported format", fullFilePath.c_str());
+		return 1;
+	}
+
 
 	uint32_t textureId;
 
@@ -82,7 +89,6 @@ uint32_t TexturesController::AddTexture(const char *filePath, bool isStdFolder)
 	textures->push_back(new Texture(image, filePath, textureId, width, height));
 	std::cout << "\nTexture loaded: \"" << fullFilePath.c_str() << "\"";
 
-	delete image;
 	return textureId;
 }
 

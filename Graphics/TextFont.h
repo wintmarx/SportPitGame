@@ -27,13 +27,13 @@ class TextFont
 {
 public:
 	GRAPHICS_API void DrawText(std::wstring text, int size, glm::vec4 *color, float x, float y, glm::mat4 *projection);
-	GRAPHICS_API TextFont(const char* filePath);
+	GRAPHICS_API TextFont(char* filePath);
 	GRAPHICS_API ~TextFont();
 	GRAPHICS_API void AddParamValue(glm::vec4 *delta);
-	uint8_t *fontName;
+	GRAPHICS_API char* GetFilePath();
 	GRAPHICS_API void ShowInfo();
 private:
-	void LoadFont(const char *filePath);
+	void LoadFont(char *filePath);
 	Glyph *glyphs;
 	SDFChar *sprite;
 	uint32_t glyphsCount;
@@ -41,6 +41,8 @@ private:
 	uint16_t lineHeight;
 	uint16_t base;
 	glm::vec3 scale;
+	char* name;
+	char* filePath;
 	
 };
 

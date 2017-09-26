@@ -1,5 +1,6 @@
 #pragma once
 #include "..\GameEngine\Screen.h"
+#include "..\GameEngine\Button.h"
 
 class MainScreen :
 	public Screen
@@ -12,5 +13,6 @@ public:
 	void OnKeyPress(int buttonID, bool isPressed);
 	void OnKeyRelease(int buttonID);
 	void Initialize();
+	Button *btn;
 };
 

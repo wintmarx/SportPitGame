@@ -169,7 +169,11 @@ void GasSimulationScreen::OnKeyPress(int buttonID, bool isPressed)
 		break;
 	case GLFW_KEY_M: 
 		if (!isPressed)
-			Screen::screenController->AddScreen(new MaxwellScreen(width, height));
+		{
+			MaxwellScreen *mx = new MaxwellScreen(width, height);
+			mx->v0 = 600;
+			Screen::screenController->AddScreen(mx);
+		}
 		break;
 	case GLFW_KEY_R:
 			currentTime = 0;

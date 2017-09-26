@@ -26,6 +26,7 @@ private:
 	void UpdateScreen(float delta);
 	std::vector<Screen*> *screens;
 	void OnKeyboardEvent();
+	//friend void OnMouseEvent(GLFWwindow *window, int button, int action, int mods);
 	Window *window;
 	int screenWidth;
 	int screenHeight;

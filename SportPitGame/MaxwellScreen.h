@@ -13,5 +13,6 @@ public:
 	void OnKeyRelease(int buttonID);
 	void Initialize();
 	double maxwellFunc(double v, double v0);
+	double v0;
 };
 

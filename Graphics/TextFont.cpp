@@ -36,7 +36,7 @@ void TextFont::DrawText(std::wstring text, int size, glm::vec4 *color, float x, 
 }
 
 
-TextFont::TextFont(const char* filePath)
+TextFont::TextFont(char* filePath)
 {
 	LoadFont(filePath);
 }
@@ -62,15 +62,18 @@ void TextFont::AddParamValue(glm::vec4 *delta)
 	sprite->AddParams(delta);
 }
 
-void TextFont::LoadFont(const char *filePath)
+void TextFont::LoadFont(char *filePath)
 {
 	uint32_t headerSize = 5;
 	uint8_t  *buffer;
 	uint32_t size;
+	this->filePath = filePath;
 
 	if (!FilesIOLibrary::LoadFile(filePath, &buffer, &size))
 	{
 		std::cout << "\nLoading font error";
+		system("pause");
+		exit(0);
 		return;
 	}
 
@@ -86,6 +89,12 @@ void TextFont::LoadFont(const char *filePath)
 	base = (*(uint16_t*)&buffer[headerSize + 5 + infoBlockLength + 4 + 2])/8;
 
 	char *textureFileName = (char*)malloc(sizeof(char) * pagesBlockLength);
+	name = (char*)malloc(sizeof(char) * infoBlockLength - 14);
+
+	for (uint32_t i = 0; i < infoBlockLength - 13; i++)
+	{
+		name[i] = *(uint8_t*)&buffer[headerSize + 5 + 13 + i];
+	}
 
 	for (uint32_t i = 0; i < pagesBlockLength; i++)
 	{
@@ -111,10 +120,10 @@ void TextFont::LoadFont(const char *filePath)
 	
 	folderPath = folderPath + '\\' + textureFileName;
 
-	sprite = new SDFChar(&glm::vec2(0.3, 20));
+	sprite = new SDFChar(&glm::vec2(0.0, 50));
 	sprite->SetShader("SDFText.vs", "SDFText.fs");
 	sprite->SetTexture(folderPath.c_str(), false);
-	sprite->SetBorder(&glm::vec4(0, 0, 0, 1), &glm::vec2(0.3, 20));
+	sprite->SetBorder(&glm::vec4(1, 1, 0, 1), &glm::vec2(0.5, 50));
 
 	glyphsCount = charsBlockLength / 20;
 
@@ -133,4 +142,9 @@ void TextFont::LoadFont(const char *filePath)
 
 	free(textureFileName);
 	delete[] buffer;
+}
+
+char* TextFont::GetFilePath()
+{
+	return filePath;
 }

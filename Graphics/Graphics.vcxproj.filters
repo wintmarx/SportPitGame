@@ -93,6 +93,9 @@
     <ClInclude Include="GraphicsResources.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="FontController.h">
+      <Filter>Заголовочные файлы\Text</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graphics.cpp">
@@ -139,6 +142,9 @@
     </ClCompile>
     <ClCompile Include="GraphicsResources.cpp">
       <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="FontController.cpp">
+      <Filter>Файлы исходного кода\Text</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -12,4 +12,5 @@ TextRenderer::TextRenderer()
 
 TextRenderer::~TextRenderer()
 {
+
 }
